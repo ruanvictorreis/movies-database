@@ -14,6 +14,7 @@
 		15E588722441421200E8576F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E588712441421200E8576F /* Assets.xcassets */; };
 		15E588752441421200E8576F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E588732441421200E8576F /* LaunchScreen.storyboard */; };
 		15E588802441421200E8576F /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E5887F2441421200E8576F /* TMDBTests.swift */; };
+		15E588942441501500E8576F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E588932441501500E8576F /* R.generated.swift */; };
 		FB08750580605E9BC28BA5C2 /* Pods_TMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABEF421B6B55DCE6E28DA9E /* Pods_TMDB.framework */; };
 		FFB88D37728F1F07FACA1049 /* Pods_TMDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA019B82B147DD36CBC4600E /* Pods_TMDBTests.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		15E5887B2441421200E8576F /* TMDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E5887F2441421200E8576F /* TMDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTests.swift; sourceTree = "<group>"; };
 		15E588812441421200E8576F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15E588932441501500E8576F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		1B6F17D0B55750A8ED63CCFC /* Pods-TMDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBTests.release.xcconfig"; path = "Target Support Files/Pods-TMDBTests/Pods-TMDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CC08B7DDB7D5AE626EC3DB5 /* Pods-TMDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBTests.debug.xcconfig"; path = "Target Support Files/Pods-TMDBTests/Pods-TMDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE2CF0F39A53AF465DF08E1 /* Pods-TMDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB.debug.xcconfig"; path = "Target Support Files/Pods-TMDB/Pods-TMDB.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				15E588712441421200E8576F /* Assets.xcassets */,
+				15E588932441501500E8576F /* R.generated.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -171,11 +174,11 @@
 			buildConfigurationList = 15E588842441421200E8576F /* Build configuration list for PBXNativeTarget "TMDB" */;
 			buildPhases = (
 				F781672EB658F7C870685E01 /* [CP] Check Pods Manifest.lock */,
+				15E5888F2441465400E8576F /* R.swift Script */,
 				15E588612441421100E8576F /* Sources */,
 				15E588622441421100E8576F /* Frameworks */,
 				15E588632441421100E8576F /* Resources */,
 				C9D1873258AFEA44545870B1 /* [CP] Embed Pods Frameworks */,
-				15E5888F2441465400E8576F /* R.swift Script */,
 				15E588902441493400E8576F /* Swift Lint Script */,
 			);
 			buildRules = (
@@ -374,6 +377,7 @@
 				15E5886D2441421100E8576F /* ViewController.swift in Sources */,
 				15E588692441421100E8576F /* AppDelegate.swift in Sources */,
 				15E5886B2441421100E8576F /* SceneDelegate.swift in Sources */,
+				15E588942441501500E8576F /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
