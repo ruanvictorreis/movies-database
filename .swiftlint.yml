@@ -52,7 +52,7 @@ identifier_name:
     error: 4
   excluded:
     - id
-    - URL
+    - url
     - GlobalAPIKey
 
 reporter: "xcode"

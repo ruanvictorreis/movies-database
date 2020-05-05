@@ -8,6 +8,7 @@ target 'TMDB' do
   # Pods for TMDB
   pod 'Alamofire', '~> 5.1'
   pod 'R.swift', '~> 5.1.0'
+  pod 'RxSwift', '~> 5.0'
   pod 'SwiftLint', '~> 0.39.2'
 
   target 'TMDBTests' do
