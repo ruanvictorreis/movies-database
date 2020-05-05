@@ -15,10 +15,15 @@ struct Movie: Decodable {
     let title: String
 
     let overview: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case overview
-    }
+    
+    let popularity: Double
+    
+    let voteCount: Int
+    
+    let voteAverage: Double
+    
+    let posterPath: String?
+    
+    let backdropPath: String?
+    
 }

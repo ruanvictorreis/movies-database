@@ -16,9 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let worker = MoviesListWorker()
-
-        worker.fetchPopularMovies()
+        MoviesListWorker().fetchPopularMovies()
             .asObservable()
             .subscribe(onNext: { movieList in
                 print(movieList)

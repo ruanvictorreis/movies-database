@@ -7,19 +7,6 @@
 //
 
 import RxSwift
-import Foundation
-
-struct MoviesListResponse: Decodable {
-
-    let page: Int
-
-    let results: [Movie]
-
-    enum CodingKeys: String, CodingKey {
-        case page
-        case results
-    }
-}
 
 class MoviesListWorker {
 
