@@ -137,19 +137,19 @@
 			path = PopularMoviesList;
 			sourceTree = "<group>";
 		};
-		15E2D34D2472F48D001055FA /* Decoders */ = {
+		15E2D34D2472F48D001055FA /* Decoding */ = {
 			isa = PBXGroup;
 			children = (
 				15E2D34724720AED001055FA /* DefaultDecoder.swift */,
 				15E2D34E2472F4AA001055FA /* SnakeCaseDecoder.swift */,
 			);
-			path = Decoders;
+			path = Decoding;
 			sourceTree = "<group>";
 		};
 		15E2D3502472F83A001055FA /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				15E2D34D2472F48D001055FA /* Decoders */,
+				15E2D34D2472F48D001055FA /* Decoding */,
 			);
 			path = Util;
 			sourceTree = "<group>";
