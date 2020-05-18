@@ -1,5 +1,5 @@
 //
-//  UseDefaultDecoder.swift
+//  DefaultDecoder.swift
 //  TMDB
 //
 //  Created by Ruan Reis on 17/05/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UseDefaultDecoder<T: Decodable> {
+class DefaultDecoder<T: Decodable> {
     
     var expectation: T.Type
     

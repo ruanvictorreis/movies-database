@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SnakeCaseDecoder<T: Decodable>: UseDefaultDecoder<T> {
+class SnakeCaseDecoder<T: Decodable>: DefaultDecoder<T> {
     
     override func decode(from data: Data) -> T? {
         let decoder = JSONDecoder()

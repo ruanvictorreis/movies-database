@@ -14,7 +14,7 @@ typealias RequestFailure = (_ error: AFError?) -> Void
 protocol Networking {
     
     func request<T: Decodable>(data: RequestData,
-                               decoder: UseDefaultDecoder<T>,
+                               decoder: DefaultDecoder<T>,
                                success: @escaping RequestSuccess<T>,
                                failure: @escaping RequestFailure)
 }
@@ -22,7 +22,7 @@ protocol Networking {
 class Network: Networking {
     
     func request<T: Decodable>(data: RequestData,
-                               decoder: UseDefaultDecoder<T>,
+                               decoder: DefaultDecoder<T>,
                                success: @escaping RequestSuccess<T>,
                                failure: @escaping RequestFailure) {
         
