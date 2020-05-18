@@ -17,10 +17,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         MoviesListWorker().fetchPopularMovies()
-            .asObservable()
-            .subscribe(onNext: { movieList in
-                print(movieList)
-            }).disposed(by: disposeBag)
-
     }
 }
