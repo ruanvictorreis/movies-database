@@ -9,8 +9,10 @@
 import UIKit
 import RxSwift
 
-class ViewController: UIViewController {
-
+class PopularMoviesViewController: UIViewController {
+    
+    @IBOutlet private var collectionView: UICollectionView!
+    
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {

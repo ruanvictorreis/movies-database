@@ -20,14 +20,16 @@ class MoviesListWorker {
     
     private let page: String = "1"
     
-    func fetchPopularMovies() {
+    func fetchPopularMovies(_ sucess: @escaping ([Movie]) -> Void) {
         let url = "\(baseURL)/movie/\(section)?api_key=\(apiKey)&page=\(page)"
         
         return Network().request(
             data: RequestData(url: url, method: .get, encoding: enconding),
             decoder: SnakeCaseDecoder(expectation: MoviesListResponse.self),
-            success: { result in
-                print(String(describing: result))
+            success: { response in
+                if let response = response {
+                    sucess(response.results)
+                }
         },
             failure: { error in
                 print(String(describing: error))
