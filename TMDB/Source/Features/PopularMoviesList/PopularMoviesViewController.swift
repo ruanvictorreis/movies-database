@@ -57,7 +57,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
         return moviesList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath)
             as? MovieCollectionViewCell else {
             return UICollectionViewCell()
