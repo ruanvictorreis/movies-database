@@ -1,5 +1,5 @@
 //
-//  MoviesListWorker.swift
+//  PopularMoviesWorker.swift
 //  TMDB
 //
 //  Created by Ruan Reis on 04/05/20.
@@ -8,7 +8,16 @@
 
 import Alamofire
 
-class MoviesListWorker {
+typealias PopularMoviesSuccess = (_ response: MoviesListResponse?) -> Void
+typealias PopularMoviesError = (_ error: AFError?) -> Void
+
+protocol PopularMoviesWorkerProtocol {
+    
+    func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError)
+    
+}
+
+class PopularMoviesWorker: PopularMoviesWorkerProtocol {
     
     private let baseURL: String = APIRoutes.apiBaseURL
     
@@ -20,19 +29,17 @@ class MoviesListWorker {
     
     private let page: String = "1"
     
-    func fetchPopularMovies(_ sucess: @escaping ([Movie]) -> Void) {
+    func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError) {
         let url = "\(baseURL)/movie/\(section)?api_key=\(apiKey)&page=\(page)"
         
-        return Network().request(
+        Network().request(
             data: RequestData(url: url, method: .get, encoding: enconding),
             decoder: SnakeCaseDecoder(expectation: MoviesListResponse.self),
             success: { response in
-                if let response = response {
-                    sucess(response.results)
-                }
-        },
-            failure: { error in
-                print(String(describing: error))
-        })
+                sucess(response)
+            },
+            failure: {error in
+                failure(error)
+            })
     }
 }

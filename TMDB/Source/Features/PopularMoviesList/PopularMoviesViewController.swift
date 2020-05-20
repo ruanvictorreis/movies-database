@@ -9,6 +9,11 @@
 import UIKit
 import RxSwift
 
+protocol PopularMoviesViewControllerProtocol {
+    
+    func showPopularMoviesList(_ movies: [Movie])
+}
+
 class PopularMoviesViewController: UIViewController {
     
     @IBOutlet private var collectionView: UICollectionView!
@@ -16,20 +21,29 @@ class PopularMoviesViewController: UIViewController {
     private var moviesList = [Movie]()
     
     private let disposeBag = DisposeBag()
+    
+    var interactor: PopularMoviesInteractorProtocol!
+    
+    var router: PopularMoviesRouterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCycle()
         setupCollectionView()
-
-        MoviesListWorker().fetchPopularMovies { [weak self] results in
-            self?.moviesList.append(contentsOf: results)
-            self?.collectionView.reloadData()
-        }
+        fetchPopularMovies()
+    }
+    
+    func setupCycle() {
+        PopularMoviesBuilder().build(self)
     }
     
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    func fetchPopularMovies() {
+        interactor.fetchPopularMovies()
     }
 }
 
@@ -55,22 +69,10 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
     }
 }
 
-//extension PopularMoviesViewController: UICollectionViewDelegateFlowLayout {
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//        return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.width/2)
-//    }
-//    
-//    func collectionView(collectionView: UICollectionView,
-//            layout collectionViewLayout: UICollectionViewLayout,
-//            minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-//        return 2.0
-//    }
-//
-//    func collectionView(collectionView: UICollectionView, layout
-//            collectionViewLayout: UICollectionViewLayout,
-//            minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-//        return 2.0
-//    }
-//}
+extension PopularMoviesViewController: PopularMoviesViewControllerProtocol {
+    
+    func showPopularMoviesList(_ movies: [Movie]) {
+        moviesList.append(contentsOf: movies)
+        collectionView.reloadData()
+    }
+}
