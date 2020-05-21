@@ -63,7 +63,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
             return UICollectionViewCell()
         }
         
-        cell.setup(title: moviesList[indexPath.row].title)
+        cell.setup(movie: moviesList[indexPath.row])
         
         return cell
     }

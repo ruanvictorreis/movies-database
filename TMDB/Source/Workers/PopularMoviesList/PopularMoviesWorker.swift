@@ -19,18 +19,9 @@ protocol PopularMoviesWorkerProtocol {
 
 class PopularMoviesWorker: PopularMoviesWorkerProtocol {
     
-    private let baseURL: String = MoviesAPI.apiBaseURL
-    
-    private let apiKey: String = MoviesAPI.apiKey
-    
-    private let enconding = JSONEncoding.default
-    
-    private let section: String = "popular"
-    
-    private let page: String = "1"
-    
     func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError) {
-        let url = "\(baseURL)/movie/\(section)?api_key=\(apiKey)&page=\(page)"
+        let url = MovieAPI.build(section: .popular, page: 1)
+        let enconding = JSONEncoding.default
         
         Network().request(
             data: RequestData(url: url, method: .get, encoding: enconding),

@@ -12,11 +12,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private var movieTitle: UILabel!
     
+    @IBOutlet private var movieImage: UIImageView!
+    
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setup(title: String) {
-        movieTitle.text = title
+    func setup(movie: Movie) {
+        movieTitle.text = movie.title
+        
+        if let poster = movie.posterPath {
+            movieImage.load(url: MovieAPI.build(image: poster, size: .w500))
+        }
     }
 }

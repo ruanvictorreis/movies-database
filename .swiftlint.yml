@@ -54,6 +54,7 @@ identifier_name:
   excluded:
     - id
     - url
+    - key
     - GlobalAPIKey
 
 reporter: "xcode"
