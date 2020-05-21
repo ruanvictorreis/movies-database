@@ -19,9 +19,9 @@ protocol PopularMoviesWorkerProtocol {
 
 class PopularMoviesWorker: PopularMoviesWorkerProtocol {
     
-    private let baseURL: String = APIRoutes.apiBaseURL
+    private let baseURL: String = MoviesAPI.apiBaseURL
     
-    private let apiKey: String = APIRoutes.apiKey
+    private let apiKey: String = MoviesAPI.apiKey
     
     private let enconding = JSONEncoding.default
     
