@@ -20,8 +20,8 @@ protocol PopularMoviesWorkerProtocol {
 class PopularMoviesWorker: PopularMoviesWorkerProtocol {
     
     func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError) {
-        let url = MovieAPI.build(section: .popular, page: 1)
         let enconding = JSONEncoding.default
+        let url = MovieAPI.build(section: .popular, page: 1)
         
         Network().request(
             data: RequestData(url: url, method: .get, encoding: enconding),
