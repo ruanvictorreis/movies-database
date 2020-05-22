@@ -45,7 +45,13 @@ class PopularMoviesViewController: UIViewController {
     }
     
     func fetchPopularMovies() {
+        showLoading()
         interactor.fetchPopularMovies()
+    }
+    
+    func fetchNextPage() {
+        showLoading()
+        interactor.fetchNextPage()
     }
 }
 
@@ -79,7 +85,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
         let lastRowIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
         
         if lastRowIndex == indexPath.row {
-            interactor.fetchNextPage()
+            fetchNextPage()
         }
     }
 }
@@ -98,5 +104,7 @@ extension PopularMoviesViewController: PopularMoviesViewControllerProtocol {
         self.collectionView.performBatchUpdates({
             self.collectionView.insertItems(at: indexPaths)
         })
+        
+        hideLoading()
     }
 }

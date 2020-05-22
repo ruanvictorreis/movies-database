@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import Foundation
 
 extension UIImageView {
     
