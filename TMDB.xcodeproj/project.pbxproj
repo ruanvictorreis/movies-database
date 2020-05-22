@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		153A62632476E9A0009D42B6 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A62622476E9A0009D42B6 /* MovieAPI.swift */; };
 		153A62662476EA16009D42B6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A62652476EA16009D42B6 /* UIImageView+Extensions.swift */; };
+		153A62682477455C009D42B6 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A62672477455C009D42B6 /* Section.swift */; };
 		155564B224734FCD007863FE /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155564B124734FCD007863FE /* MovieCollectionViewCell.swift */; };
 		156273372474BB6400656B5E /* PopularMoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156273362474BB6400656B5E /* PopularMoviesInteractor.swift */; };
 		156273392474BC3500656B5E /* PopularMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156273382474BC3500656B5E /* PopularMoviesPresenter.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		153A62622476E9A0009D42B6 /* MovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		153A62652476EA16009D42B6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		153A62672477455C009D42B6 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		155564B124734FCD007863FE /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		156273362474BB6400656B5E /* PopularMoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesInteractor.swift; sourceTree = "<group>"; };
 		156273382474BC3500656B5E /* PopularMoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesPresenter.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				157D53EB2461AB8F00CA72F9 /* MoviesListResponse.swift */,
 				157D53DE2460F3E100CA72F9 /* PopularMoviesWorker.swift */,
+				153A62672477455C009D42B6 /* Section.swift */,
 			);
 			path = PopularMoviesList;
 			sourceTree = "<group>";
@@ -404,7 +407,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/TMDB/Resources/R.generated.swift",
+				$SRCROOT/TMDB/Resources/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,6 +505,7 @@
 				15E2D34F2472F4AA001055FA /* SnakeCaseDecoder.swift in Sources */,
 				156273372474BB6400656B5E /* PopularMoviesInteractor.swift in Sources */,
 				15E588692441421100E8576F /* AppDelegate.swift in Sources */,
+				153A62682477455C009D42B6 /* Section.swift in Sources */,
 				156273392474BC3500656B5E /* PopularMoviesPresenter.swift in Sources */,
 				157D53E42460FBE600CA72F9 /* Network.swift in Sources */,
 				157D53DF2460F3E100CA72F9 /* PopularMoviesWorker.swift in Sources */,

@@ -13,11 +13,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var movieTitle: UILabel!
     
     @IBOutlet private var movieImage: UIImageView!
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+        
     func setup(movie: Movie) {
         movieTitle.text = movie.title
         

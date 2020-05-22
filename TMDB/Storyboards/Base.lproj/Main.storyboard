@@ -20,46 +20,45 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="16" minimumInteritemSpacing="16" id="nhZ-bV-AVb">
-                                    <size key="itemSize" width="180" height="256"/>
+                                    <size key="itemSize" width="180" height="325"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="18" minY="18" maxX="18" maxY="18"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="SnV-T4-O1B" customClass="MovieCollectionViewCell" customModule="TMDB" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="18" width="180" height="256"/>
+                                        <rect key="frame" x="18" y="18" width="180" height="325"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sTp-Rz-Vnj">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="256"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="325"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-k5-BCr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="256"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="270"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="256" id="m2M-LE-Yej"/>
+                                                        <constraint firstAttribute="height" constant="270" id="m2M-LE-Yej"/>
                                                         <constraint firstAttribute="width" constant="180" id="ndI-11-Ha2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Ultimate Figther: The return of the king" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-Np-fsC">
-                                                    <rect key="frame" x="6" y="107.5" width="168" height="41"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-Np-fsC">
+                                                    <rect key="frame" x="8" y="286" width="164" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Awe-Np-fsC" secondAttribute="trailing" id="0Uu-gs-h2g"/>
-                                                <constraint firstAttribute="bottom" secondItem="Iki-k5-BCr" secondAttribute="bottom" id="7UQ-Wv-3Ct"/>
                                                 <constraint firstAttribute="trailing" secondItem="Iki-k5-BCr" secondAttribute="trailing" id="8KD-wC-Bmy"/>
-                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sTp-Rz-Vnj" secondAttribute="leading" id="94g-2W-uTe"/>
+                                                <constraint firstAttribute="trailing" secondItem="Awe-Np-fsC" secondAttribute="trailing" constant="8" id="Ajh-5w-Boi"/>
                                                 <constraint firstItem="Iki-k5-BCr" firstAttribute="leading" secondItem="sTp-Rz-Vnj" secondAttribute="leading" id="Ffb-o9-D5O"/>
-                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="centerX" secondItem="sTp-Rz-Vnj" secondAttribute="centerX" id="JXg-g5-jRt"/>
-                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sTp-Rz-Vnj" secondAttribute="top" constant="16" id="ZAM-ae-jHK"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Awe-Np-fsC" secondAttribute="bottom" constant="16" id="mEg-CG-Goa"/>
+                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="top" secondItem="Iki-k5-BCr" secondAttribute="bottom" constant="16" id="MUd-JD-hC6"/>
+                                                <constraint firstAttribute="bottom" secondItem="Awe-Np-fsC" secondAttribute="bottom" constant="16" id="hao-cz-haD"/>
+                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="leading" secondItem="sTp-Rz-Vnj" secondAttribute="leading" constant="8" id="qYr-gy-3ez"/>
                                                 <constraint firstItem="Iki-k5-BCr" firstAttribute="top" secondItem="sTp-Rz-Vnj" secondAttribute="top" id="sEk-tW-Kzr"/>
-                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="centerY" secondItem="sTp-Rz-Vnj" secondAttribute="centerY" id="vKk-iW-eiH"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="180" height="325"/>
                                         <connections>
                                             <outlet property="movieImage" destination="Iki-k5-BCr" id="9LZ-rD-eSM"/>
                                             <outlet property="movieTitle" destination="Awe-Np-fsC" id="NYP-Za-l7w"/>
@@ -83,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="136"/>
+            <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
         </scene>
     </scenes>
 </document>

@@ -12,11 +12,19 @@ protocol PopularMoviesInteractorProtocol {
     
     func fetchPopularMovies()
     
+    func fetchNextPage()
+    
+    func currentPageLoaded(indexPath: IndexPath)
+    
 }
 
 class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
     
     var presenter: PopularMoviesPresenterProtocol!
+    
+    private var isLoading = false
+    
+    private var rowsCount: Int = 0
     
     private let popularMoviesWorker: PopularMoviesWorkerProtocol
     
@@ -25,6 +33,8 @@ class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
     }
     
     func fetchPopularMovies() {
+        isLoading = true
+        
         popularMoviesWorker
             .fetchPopularMovies(
                 sucess: { [weak self] response in
@@ -33,5 +43,19 @@ class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
                 failure: { [weak self] error in
                     self?.presenter.showPopularMoviesError(error)
             })
+    }
+    
+    func fetchNextPage() {
+        if !isLoading {
+            popularMoviesWorker.nextPage()
+            fetchPopularMovies()
+        }
+    }
+    
+    func currentPageLoaded(indexPath: IndexPath) {
+        if indexPath.row > rowsCount {
+            isLoading = false
+            rowsCount = indexPath.row
+        }
     }
 }

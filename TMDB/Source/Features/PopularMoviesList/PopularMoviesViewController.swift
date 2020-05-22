@@ -20,6 +20,8 @@ class PopularMoviesViewController: UIViewController {
     
     private var moviesList = [Movie]()
     
+    private var isLoading = true
+    
     private let disposeBag = DisposeBag()
     
     var interactor: PopularMoviesInteractorProtocol!
@@ -47,25 +49,48 @@ class PopularMoviesViewController: UIViewController {
     }
 }
 
-extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PopularMoviesViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return moviesList.count
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath)
             as? MovieCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
+
         cell.setup(movie: moviesList[indexPath.row])
-        
+
         return cell
+    }
+}
+
+extension PopularMoviesViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        
+        let lastRowIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
+        
+        if lastRowIndex == indexPath.row {
+            interactor.fetchNextPage()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        
+        let lastRowIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
+        
+        if lastRowIndex == indexPath.row {
+            interactor.currentPageLoaded(indexPath: indexPath)
+        }
     }
 }
 

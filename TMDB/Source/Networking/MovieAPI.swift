@@ -18,10 +18,6 @@ struct MovieAPI {
         case w300
         case w200
     }
-    
-    enum Section: String {
-        case popular
-    }
 
     // MARK: - Internal Properties
     static let key: String = "4a2227bffae9ea53eebcaa7d05098303"

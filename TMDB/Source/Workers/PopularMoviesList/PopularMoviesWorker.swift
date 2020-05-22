@@ -15,13 +15,19 @@ protocol PopularMoviesWorkerProtocol {
     
     func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError)
     
+    func nextPage()
+    
 }
 
 class PopularMoviesWorker: PopularMoviesWorkerProtocol {
+
+    private var currentPage = 1
+    
+    private var section: Section = .popular
     
     func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError) {
         let enconding = JSONEncoding.default
-        let url = MovieAPI.build(section: .popular, page: 1)
+        let url = MovieAPI.build(section: section, page: currentPage)
         
         Network().request(
             data: RequestData(url: url, method: .get, encoding: enconding),
@@ -32,5 +38,9 @@ class PopularMoviesWorker: PopularMoviesWorkerProtocol {
             failure: {error in
                 failure(error)
             })
+    }
+    
+    func nextPage() {
+        self.currentPage += 1
     }
 }
