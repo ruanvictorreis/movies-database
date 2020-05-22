@@ -12,7 +12,7 @@ protocol PopularMoviesInteractorProtocol {
     
     func fetchPopularMovies()
     
-    func fetchNextPage()
+    func fetchNextPage(indexPath: IndexPath)
     
     func currentPageLoaded(indexPath: IndexPath)
     
@@ -21,8 +21,6 @@ protocol PopularMoviesInteractorProtocol {
 class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
     
     var presenter: PopularMoviesPresenterProtocol!
-    
-    private var isLoading = false
     
     private var rowsCount: Int = 0
     
@@ -33,8 +31,6 @@ class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
     }
     
     func fetchPopularMovies() {
-        isLoading = true
-        
         popularMoviesWorker
             .fetchPopularMovies(
                 sucess: { [weak self] response in
@@ -45,8 +41,8 @@ class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
             })
     }
     
-    func fetchNextPage() {
-        if !isLoading {
+    func fetchNextPage(indexPath: IndexPath) {
+        if indexPath.row == rowsCount && rowsCount != 0 {
             popularMoviesWorker.nextPage()
             fetchPopularMovies()
         }
@@ -54,7 +50,6 @@ class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
     
     func currentPageLoaded(indexPath: IndexPath) {
         if indexPath.row > rowsCount {
-            isLoading = false
             rowsCount = indexPath.row
         }
     }

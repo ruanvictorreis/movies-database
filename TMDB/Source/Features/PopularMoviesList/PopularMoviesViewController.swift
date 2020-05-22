@@ -79,7 +79,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
         let lastRowIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
         
         if lastRowIndex == indexPath.row {
-            interactor.fetchNextPage()
+            interactor.fetchNextPage(indexPath: indexPath)
         }
     }
     
