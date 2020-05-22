@@ -12,9 +12,7 @@ protocol PopularMoviesInteractorProtocol {
     
     func fetchPopularMovies()
     
-    func fetchNextPage(indexPath: IndexPath)
-    
-    func currentPageLoaded(indexPath: IndexPath)
+    func fetchNextPage()
     
 }
 
@@ -22,7 +20,7 @@ class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
     
     var presenter: PopularMoviesPresenterProtocol!
     
-    private var rowsCount: Int = 0
+    private var shouldFecthNextPage = false
     
     private let popularMoviesWorker: PopularMoviesWorkerProtocol
     
@@ -41,16 +39,8 @@ class PopularMoviesInteractor: PopularMoviesInteractorProtocol {
             })
     }
     
-    func fetchNextPage(indexPath: IndexPath) {
-        if indexPath.row == rowsCount && rowsCount != 0 {
-            popularMoviesWorker.nextPage()
-            fetchPopularMovies()
-        }
-    }
-    
-    func currentPageLoaded(indexPath: IndexPath) {
-        if indexPath.row > rowsCount {
-            rowsCount = indexPath.row
-        }
+    func fetchNextPage() {
+        popularMoviesWorker.nextPage()
+        fetchPopularMovies()
     }
 }

@@ -17,12 +17,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     private var request: DataRequest?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.clear()
-    }
-        
     func setup(movie: Movie) {
+        clearForReuse()
         movieTitle.text = movie.title
         
         if let poster = movie.posterPath {
@@ -32,7 +28,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func clear() {
+    private func clearForReuse() {
         movieTitle.text = nil
         movieImage.image = nil
         request?.cancel()

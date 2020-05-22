@@ -27,7 +27,7 @@ class PopularMoviesViewController: UIViewController {
     var interactor: PopularMoviesInteractorProtocol!
     
     var router: PopularMoviesRouterProtocol!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCycle()
@@ -54,19 +54,19 @@ extension PopularMoviesViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return moviesList.count
     }
-        
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath)
             as? MovieCollectionViewCell else {
-            return UICollectionViewCell()
+                return UICollectionViewCell()
         }
-
+        
         cell.setup(movie: moviesList[indexPath.item])
-
+        
         return cell
     }
 }
@@ -79,17 +79,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
         let lastRowIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
         
         if lastRowIndex == indexPath.row {
-            interactor.fetchNextPage(indexPath: indexPath)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
-        
-        let lastRowIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
-        
-        if lastRowIndex == indexPath.row {
-            interactor.currentPageLoaded(indexPath: indexPath)
+            interactor.fetchNextPage()
         }
     }
 }
