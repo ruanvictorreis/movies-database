@@ -11,12 +11,14 @@ import Foundation
 
 extension UIImageView {
     
-    func load(url: String, completation: (() -> Void)? = nil) {
-        AF.request(url).response { response in
+    func load(url: String, completation: ((DataRequest) -> Void)? = nil) {
+        let request = AF.request(url)
+        
+        request.response { response in
             let statusCode = response.response?.statusCode
             if  statusCode == 200, let data = response.data {
                 self.image = UIImage(data: data)
-                completation?()
+                completation?(request)
             }
         }
     }

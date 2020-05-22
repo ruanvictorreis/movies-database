@@ -65,7 +65,7 @@ extension PopularMoviesViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        cell.setup(movie: moviesList[indexPath.row])
+        cell.setup(movie: moviesList[indexPath.item])
 
         return cell
     }
@@ -97,7 +97,26 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
 extension PopularMoviesViewController: PopularMoviesViewControllerProtocol {
     
     func showPopularMoviesList(_ movies: [Movie]) {
+        guard movies.isEmpty else {
+            moviesList.append(contentsOf: movies)
+            collectionView.reloadData()
+
+            return
+        }
+
+        var indexPaths: [IndexPath] = []
+
+        for (index, movie) in movies.enumerated() {
+            indexPaths.append(IndexPath(item: index + (movies.count), section: 0))
+        }
+        
         moviesList.append(contentsOf: movies)
-        collectionView.reloadData()
+
+        self.collectionView.performBatchUpdates({
+            self.collectionView.insertItems(at: indexPaths)
+        })
+        
+//        moviesList.append(contentsOf: movies)
+//        collectionView.reloadData()
     }
 }
