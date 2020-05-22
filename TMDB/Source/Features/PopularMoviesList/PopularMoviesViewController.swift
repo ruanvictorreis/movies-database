@@ -97,26 +97,16 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
 extension PopularMoviesViewController: PopularMoviesViewControllerProtocol {
     
     func showPopularMoviesList(_ movies: [Movie]) {
-        guard movies.isEmpty else {
-            moviesList.append(contentsOf: movies)
-            collectionView.reloadData()
-
-            return
-        }
-
         var indexPaths: [IndexPath] = []
-
-        for (index, movie) in movies.enumerated() {
-            indexPaths.append(IndexPath(item: index + (movies.count), section: 0))
+        
+        for index in movies.indices {
+            indexPaths.append(IndexPath(item: index + (moviesList.count), section: 0))
         }
         
         moviesList.append(contentsOf: movies)
-
+        
         self.collectionView.performBatchUpdates({
             self.collectionView.insertItems(at: indexPaths)
         })
-        
-//        moviesList.append(contentsOf: movies)
-//        collectionView.reloadData()
     }
 }
