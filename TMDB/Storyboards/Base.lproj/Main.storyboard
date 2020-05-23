@@ -29,7 +29,7 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="SnV-T4-O1B" customClass="MovieCollectionViewCell" customModule="TMDB" customModuleProvider="target">
                                         <rect key="frame" x="16" y="16" width="160" height="296"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sTp-Rz-Vnj">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sTp-Rz-Vnj" customClass="UICardView" customModule="TMDB" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="296"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -56,6 +56,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="Awe-Np-fsC" secondAttribute="bottom" constant="16" id="S0w-Nz-CaT"/>
                                                 <constraint firstItem="Iki-k5-BCr" firstAttribute="top" secondItem="sTp-Rz-Vnj" secondAttribute="top" id="sEk-tW-Kzr"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="0.59999999999999998"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="160" height="296"/>
                                         <connections>
