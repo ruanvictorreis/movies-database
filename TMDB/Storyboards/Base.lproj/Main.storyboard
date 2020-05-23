@@ -19,29 +19,28 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-ge-DaW">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="16" minimumInteritemSpacing="16" id="nhZ-bV-AVb">
-                                    <size key="itemSize" width="180" height="325"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nhZ-bV-AVb">
+                                    <size key="itemSize" width="160" height="296"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="18" minY="18" maxX="18" maxY="18"/>
+                                    <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="SnV-T4-O1B" customClass="MovieCollectionViewCell" customModule="TMDB" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="18" width="180" height="325"/>
+                                        <rect key="frame" x="16" y="16" width="160" height="296"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sTp-Rz-Vnj">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="325"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="296"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-k5-BCr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="270"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="270" id="m2M-LE-Yej"/>
-                                                        <constraint firstAttribute="width" constant="180" id="ndI-11-Ha2"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-Np-fsC">
-                                                    <rect key="frame" x="8" y="286" width="164" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-Np-fsC">
+                                                    <rect key="frame" x="8" y="256" width="144" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="TjC-Ie-ILR"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -50,15 +49,15 @@
                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Iki-k5-BCr" secondAttribute="trailing" id="8KD-wC-Bmy"/>
-                                                <constraint firstAttribute="trailing" secondItem="Awe-Np-fsC" secondAttribute="trailing" constant="8" id="Ajh-5w-Boi"/>
+                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="top" secondItem="Iki-k5-BCr" secondAttribute="bottom" constant="16" id="AZ4-cg-aVT"/>
                                                 <constraint firstItem="Iki-k5-BCr" firstAttribute="leading" secondItem="sTp-Rz-Vnj" secondAttribute="leading" id="Ffb-o9-D5O"/>
-                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="top" secondItem="Iki-k5-BCr" secondAttribute="bottom" constant="16" id="MUd-JD-hC6"/>
-                                                <constraint firstAttribute="bottom" secondItem="Awe-Np-fsC" secondAttribute="bottom" constant="16" id="hao-cz-haD"/>
-                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="leading" secondItem="sTp-Rz-Vnj" secondAttribute="leading" constant="8" id="qYr-gy-3ez"/>
+                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="leading" secondItem="sTp-Rz-Vnj" secondAttribute="leading" constant="8" id="Of2-Xh-LFP"/>
+                                                <constraint firstAttribute="trailing" secondItem="Awe-Np-fsC" secondAttribute="trailing" constant="8" id="RCd-Sp-AlQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Awe-Np-fsC" secondAttribute="bottom" constant="16" id="S0w-Nz-CaT"/>
                                                 <constraint firstItem="Iki-k5-BCr" firstAttribute="top" secondItem="sTp-Rz-Vnj" secondAttribute="top" id="sEk-tW-Kzr"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="180" height="325"/>
+                                        <size key="customSize" width="160" height="296"/>
                                         <connections>
                                             <outlet property="movieImage" destination="Iki-k5-BCr" id="9LZ-rD-eSM"/>
                                             <outlet property="movieTitle" destination="Awe-Np-fsC" id="NYP-Za-l7w"/>

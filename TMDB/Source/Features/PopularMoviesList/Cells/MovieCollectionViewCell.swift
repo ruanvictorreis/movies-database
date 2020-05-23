@@ -17,12 +17,15 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     private var request: DataRequest?
     
-    func setup(movie: Movie) {
+    override func prepareForReuse() {
         clearForReuse()
+    }
+    
+    func setup(movie: Movie) {
         movieTitle.text = movie.title
         
         if let poster = movie.posterPath {
-            movieImage.load(url: MovieAPI.build(image: poster, size: .w300)) { [weak self] request in
+            movieImage.load(url: MovieAPI.build(image: poster, size: .w500)) { [weak self] request in
                 self?.request = request
             }
         }

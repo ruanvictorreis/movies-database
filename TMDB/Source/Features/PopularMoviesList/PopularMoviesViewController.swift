@@ -90,6 +90,48 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
     }
 }
 
+extension PopularMoviesViewController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - Private Properties
+    private var margin: CGFloat {
+        return 16.0
+    }
+    
+    private var insetForSections: UIEdgeInsets {
+        return UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+    }
+    
+    // MARK: - Internal Methods
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return self.insetForSections
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return margin
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return margin
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let padding = insetForSections.left + insetForSections.right + margin
+        let width = (view.bounds.size.width - padding) / 2
+        let ratio: CGFloat = 1.85
+        let height = width * ratio
+        return CGSize(width: width, height: height)
+    }
+}
+
 extension PopularMoviesViewController: PopularMoviesViewControllerProtocol {
     
     func showPopularMoviesList(_ movies: [Movie]) {
