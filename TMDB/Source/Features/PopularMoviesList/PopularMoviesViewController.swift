@@ -87,6 +87,14 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
         if lastRowIndex == indexPath.row {
             fetchNextPage()
         }
+        
+        cell.alpha = 0.0
+        cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: .allowUserInteraction, animations: {
+            cell.alpha = 1.0
+            cell.transform = .identity
+        })
     }
 }
 
