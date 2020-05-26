@@ -29,7 +29,7 @@ class MovieListViewController: UIViewController {
         super.viewDidLoad()
         setupCycle()
         setupCollectionView()
-        fetchPopularMovies()
+        fetchMovieList()
     }
     
     func setupCycle() {
@@ -41,7 +41,7 @@ class MovieListViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    func fetchPopularMovies() {
+    func fetchMovieList() {
         showLoading()
         interactor.fetchMovieList()
     }
