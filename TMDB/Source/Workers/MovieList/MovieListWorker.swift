@@ -1,5 +1,5 @@
 //
-//  PopularMoviesWorker.swift
+//  MovieListWorker.swift
 //  TMDB
 //
 //  Created by Ruan Reis on 04/05/20.
@@ -8,24 +8,27 @@
 
 import Alamofire
 
-typealias PopularMoviesSuccess = (_ response: MoviesListResponse?) -> Void
-typealias PopularMoviesError = (_ error: AFError?) -> Void
+typealias MovieListSuccess = (_ response: MoviesListResponse?) -> Void
+typealias MovieListError = (_ error: AFError?) -> Void
 
-protocol PopularMoviesWorkerProtocol {
+protocol MovieListWorkerProtocol {
     
-    func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError)
+    func fetchMovieList(section: Section,
+                        sucess: @escaping MovieListSuccess,
+                        failure: @escaping MovieListError)
     
     func nextPage()
     
 }
 
-class PopularMoviesWorker: PopularMoviesWorkerProtocol {
+class MovieListWorker: MovieListWorkerProtocol {
 
     private var currentPage = 1
     
-    private var section: Section = .popular
-    
-    func fetchPopularMovies(sucess: @escaping PopularMoviesSuccess, failure: @escaping PopularMoviesError) {
+    func fetchMovieList(section: Section,
+                        sucess: @escaping MovieListSuccess,
+                        failure: @escaping MovieListError) {
+        
         let enconding = JSONEncoding.default
         let url = MovieAPI.build(section: section, page: currentPage)
         

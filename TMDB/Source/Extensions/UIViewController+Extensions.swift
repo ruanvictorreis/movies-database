@@ -10,6 +10,15 @@ import UIKit
 
 extension UIViewController {
     
+    typealias AlertAction = (UIAlertAction) -> Void
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        //alertController.view.tintColor = .water
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func showLoading() {
         let container = UIView()
         let loadingView = UIView()

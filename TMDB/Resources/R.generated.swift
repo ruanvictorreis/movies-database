@@ -171,20 +171,20 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = PopularMoviesViewController
+      typealias InitialController = MovieListViewController
 
       let bundle = R.hostingBundle
+      let movieListViewController = StoryboardViewControllerResource<MovieListViewController>(identifier: "MovieListViewController")
       let name = "Main"
-      let popularMoviesViewController = StoryboardViewControllerResource<PopularMoviesViewController>(identifier: "popularMoviesViewController")
 
-      func popularMoviesViewController(_: Void = ()) -> PopularMoviesViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: popularMoviesViewController)
+      func movieListViewController(_: Void = ()) -> MovieListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: movieListViewController)
       }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.main().popularMoviesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'popularMoviesViewController' could not be loaded from storyboard 'Main' as 'PopularMoviesViewController'.") }
+        if _R.storyboard.main().movieListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'movieListViewController' could not be loaded from storyboard 'Main' as 'MovieListViewController'.") }
       }
 
       fileprivate init() {}

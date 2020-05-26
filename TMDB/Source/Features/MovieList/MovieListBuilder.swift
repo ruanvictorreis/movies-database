@@ -1,5 +1,5 @@
 //
-//  PopularMoviesBuilder.swift
+//  MovieListBuilder.swift
 //  TMDB
 //
 //  Created by Ruan Reis on 19/05/20.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-class PopularMoviesBuilder {
+class MovieListBuilder {
     
-    func build(_ viewController: PopularMoviesViewController) {
-        let interactor = PopularMoviesInteractor()
-        let presenter = PopularMoviesPresenter()
-        let router = PopularMoviesRouter()
+    func build(_ viewController: MovieListViewController) {
+        let interactor = MovieListInteractor()
+        let presenter = MovieListPresenter()
+        let router = MovieListRouter()
         
         viewController.interactor = interactor
         viewController.router = router

@@ -1,5 +1,5 @@
 //
-//  PopularMoviesViewController.swift
+//  MovieListViewController.swift
 //  TMDB
 //
 //  Created by Ruan Reis on 10/04/20.
@@ -11,10 +11,12 @@ import RxSwift
 
 protocol PopularMoviesViewControllerProtocol {
     
-    func showPopularMoviesList(_ movies: [Movie])
+    func showMoviesList(_ movies: [Movie])
+    
+    func showMovieListError(errorMessage: String)
 }
 
-class PopularMoviesViewController: UIViewController {
+class MovieListViewController: UIViewController {
     
     @IBOutlet private var collectionView: UICollectionView!
     
@@ -55,7 +57,7 @@ class PopularMoviesViewController: UIViewController {
     }
 }
 
-extension PopularMoviesViewController: UICollectionViewDataSource {
+extension MovieListViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -77,7 +79,7 @@ extension PopularMoviesViewController: UICollectionViewDataSource {
     }
 }
 
-extension PopularMoviesViewController: UICollectionViewDelegate {
+extension MovieListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
@@ -98,7 +100,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate {
     }
 }
 
-extension PopularMoviesViewController: UICollectionViewDelegateFlowLayout {
+extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - Private Properties
     private var margin: CGFloat {
@@ -135,9 +137,9 @@ extension PopularMoviesViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension PopularMoviesViewController: PopularMoviesViewControllerProtocol {
+extension MovieListViewController: PopularMoviesViewControllerProtocol {
     
-    func showPopularMoviesList(_ movies: [Movie]) {
+    func showMoviesList(_ movies: [Movie]) {
         var indexPaths: [IndexPath] = []
         
         for index in movies.indices {
@@ -151,5 +153,9 @@ extension PopularMoviesViewController: PopularMoviesViewControllerProtocol {
         })
         
         hideLoading()
+    }
+    
+    func showMovieListError(errorMessage: String) {
+        showAlert(title: "Oops!", message: errorMessage)
     }
 }

@@ -12,7 +12,7 @@ protocol PopularMoviesRouterProtocol {
     
 }
 
-class PopularMoviesRouter: PopularMoviesRouterProtocol {
+class MovieListRouter: PopularMoviesRouterProtocol {
     
-    var viewController: PopularMoviesViewControllerProtocol!
+    var viewController: MovieListViewControllerProtocol!
 }
