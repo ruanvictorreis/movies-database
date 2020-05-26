@@ -1,4 +1,5 @@
 disabled_rules: 
+  - trailing_whitespace
   - sorted_imports
   - unused_optional_binding
 
@@ -52,7 +53,8 @@ identifier_name:
     error: 4
   excluded:
     - id
-    - URL
+    - url
+    - key
     - GlobalAPIKey
 
 reporter: "xcode"

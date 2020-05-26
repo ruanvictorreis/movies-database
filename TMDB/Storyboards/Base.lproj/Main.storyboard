@@ -1,38 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieListViewController" id="BYZ-38-t0r" customClass="MovieListViewController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello world!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r56-8y-0uA">
-                                <rect key="frame" x="162" y="442.5" width="90.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-ge-DaW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nhZ-bV-AVb">
+                                    <size key="itemSize" width="160" height="296"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="SnV-T4-O1B" customClass="MovieCollectionViewCell" customModule="TMDB" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="16" width="160" height="296"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sTp-Rz-Vnj" customClass="UICardView" customModule="TMDB" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="296"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-k5-BCr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-Np-fsC">
+                                                    <rect key="frame" x="8" y="256" width="144" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="TjC-Ie-ILR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Iki-k5-BCr" secondAttribute="trailing" id="8KD-wC-Bmy"/>
+                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="top" secondItem="Iki-k5-BCr" secondAttribute="bottom" constant="16" id="AZ4-cg-aVT"/>
+                                                <constraint firstItem="Iki-k5-BCr" firstAttribute="leading" secondItem="sTp-Rz-Vnj" secondAttribute="leading" id="Ffb-o9-D5O"/>
+                                                <constraint firstItem="Awe-Np-fsC" firstAttribute="leading" secondItem="sTp-Rz-Vnj" secondAttribute="leading" constant="8" id="Of2-Xh-LFP"/>
+                                                <constraint firstAttribute="trailing" secondItem="Awe-Np-fsC" secondAttribute="trailing" constant="8" id="RCd-Sp-AlQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Awe-Np-fsC" secondAttribute="bottom" constant="16" id="S0w-Nz-CaT"/>
+                                                <constraint firstItem="Iki-k5-BCr" firstAttribute="top" secondItem="sTp-Rz-Vnj" secondAttribute="top" id="sEk-tW-Kzr"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="0.59999999999999998"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="160" height="296"/>
+                                        <connections>
+                                            <outlet property="movieImage" destination="Iki-k5-BCr" id="9LZ-rD-eSM"/>
+                                            <outlet property="movieTitle" destination="Awe-Np-fsC" id="NYP-Za-l7w"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="r56-8y-0uA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4uU-99-EKJ"/>
-                            <constraint firstItem="r56-8y-0uA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RFT-7e-fWI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IXx-ge-DaW" secondAttribute="bottom" id="2tC-TX-lpR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IXx-ge-DaW" secondAttribute="trailing" id="Dj4-mT-pGH"/>
+                            <constraint firstItem="IXx-ge-DaW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P9t-St-rMU"/>
+                            <constraint firstItem="IXx-ge-DaW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nae-gC-d0E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="IXx-ge-DaW" id="kiZ-Dh-MRe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="136"/>
+            <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
         </scene>
     </scenes>
 </document>
