@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  TMDB
+
+  Created by Ruan Reis on 26/05/20.
+  Copyright © 2020 Ruan Reis. All rights reserved.
+*/
+
+"language" = "en";
+
+"errorTitle" = "Oops, an error has occurred!";
+
+"errorDescription" = "Sorry, something went wrong. Try again later.";

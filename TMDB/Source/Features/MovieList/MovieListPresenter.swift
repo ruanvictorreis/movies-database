@@ -20,18 +20,19 @@ class MovieListPresenter: MovieListPresenterProtocol {
     
     var viewController: MovieListViewControllerProtocol!
     
-    init() {
-        
-    }
-    
     func showMoviesList(_ response: MoviesListResponse?) {
-        guard let moviesList = response?.results else { return }
+        guard let moviesList = response?.results else {
+            viewController.showMovieListError(
+                errorMessage: R.Localizable.errorDescription())
+            return
+        }
+        
         viewController.showMoviesList(moviesList)
     }
     
     func showMovieListError(_ error: AFError?) {
-        let message = error?.errorDescription ?? "default error"
-        viewController.showMovieListError(errorMessage: message)
+        viewController.showMovieListError(
+            errorMessage: error?.errorDescription ?? R.Localizable.errorDescription())
     }
     
 }

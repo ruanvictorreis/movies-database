@@ -151,6 +151,6 @@ extension MovieListViewController: MovieListViewControllerProtocol {
     }
     
     func showMovieListError(errorMessage: String) {
-        showAlert(title: "Oops!", message: errorMessage)
+        showAlert(title: R.Localizable.errorTitle(), message: errorMessage)
     }
 }

@@ -25,12 +25,17 @@ struct MovieAPI {
     static let baseURL: String = "https://api.themoviedb.org/\(MovieAPI.version)"
     static let imageURL: String = "https://image.tmdb.org/t/p"
     
+    static var language: String {
+        return Locale.current.collatorIdentifier ?? R.Localizable.language()
+    }
+    
     static func build(image: String, size: ImageSize) -> String {
         return "\(MovieAPI.imageURL)/\(size.rawValue)/\(image)"
     }
     
     static func build(section: Section, page: Int) -> String {
-        return "\(MovieAPI.baseURL)/movie/\(section.rawValue)?api_key=\(MovieAPI.key)&page=\(page)"
+        return "\(MovieAPI.baseURL)/movie/\(section.rawValue)"
+            + "?api_key=\(MovieAPI.key)&language=\(language)&page=\(page)"
     }
     
 }
