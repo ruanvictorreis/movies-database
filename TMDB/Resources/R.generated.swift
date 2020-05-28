@@ -238,9 +238,7 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = MovieDetailsViewController
-
+    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let movieDetailsViewController = StoryboardViewControllerResource<MovieDetailsViewController>(identifier: "movieDetailsViewController")
       let movieListViewController = StoryboardViewControllerResource<MovieListViewController>(identifier: "MovieListViewController")
