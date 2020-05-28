@@ -10,9 +10,17 @@ import Foundation
 
 protocol MovieListRouterProtocol {
     
+    func proceedToMovieDetails(movie: Movie)
+    
 }
 
 class MovieListRouter: MovieListRouterProtocol {
     
-    var viewController: MovieListViewControllerProtocol!
+    var viewController: MovieListViewController!
+    
+    func proceedToMovieDetails(movie: Movie) {
+        guard let movieDetails = R.storyboard.main.movieDetailsViewController() else { return }
+        viewController.navigationController?.pushViewController(movieDetails, animated: true)
+    }
+    
 }

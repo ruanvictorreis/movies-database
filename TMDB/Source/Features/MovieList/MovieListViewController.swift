@@ -93,6 +93,10 @@ extension MovieListViewController: UICollectionViewDelegate {
             cell.transform = .identity
         })
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router.proceedToMovieDetails(movie: moviesList[indexPath.item])
+    }
 }
 
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
