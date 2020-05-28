@@ -27,13 +27,8 @@ class MovieListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCycle()
         setupCollectionView()
         fetchMovieList()
-    }
-    
-    func setupCycle() {
-        MovieListBuilder().build(self)
     }
     
     func setupCollectionView() {

@@ -10,15 +10,18 @@ import Foundation
 
 class MovieListBuilder {
     
-    func build(_ viewController: MovieListViewController) {
+    func build() -> MovieListViewController? {
+        let viewController = R.storyboard.main.movieListViewController()
         let interactor = MovieListInteractor()
         let presenter = MovieListPresenter()
         let router = MovieListRouter()
         
-        viewController.interactor = interactor
-        viewController.router = router
+        viewController?.interactor = interactor
+        viewController?.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
+        
+        return viewController
     }
 }
