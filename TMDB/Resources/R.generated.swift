@@ -240,12 +240,12 @@ struct _R: Rswift.Validatable {
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let movieDetailsViewController = StoryboardViewControllerResource<MovieDetailsViewController>(identifier: "movieDetailsViewController")
+      let movieDetails = StoryboardViewControllerResource<MovieDetailsViewController>(identifier: "movieDetails")
       let movieListViewController = StoryboardViewControllerResource<MovieListViewController>(identifier: "MovieListViewController")
       let name = "Main"
 
-      func movieDetailsViewController(_: Void = ()) -> MovieDetailsViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: movieDetailsViewController)
+      func movieDetails(_: Void = ()) -> MovieDetailsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: movieDetails)
       }
 
       func movieListViewController(_: Void = ()) -> MovieListViewController? {
@@ -256,7 +256,7 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().movieListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'movieListViewController' could not be loaded from storyboard 'Main' as 'MovieListViewController'.") }
-        if _R.storyboard.main().movieDetailsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'movieDetailsViewController' could not be loaded from storyboard 'Main' as 'MovieDetailsViewController'.") }
+        if _R.storyboard.main().movieDetails() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'movieDetails' could not be loaded from storyboard 'Main' as 'MovieDetailsViewController'.") }
       }
 
       fileprivate init() {}
