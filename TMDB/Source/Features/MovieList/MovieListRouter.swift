@@ -19,14 +19,9 @@ class MovieListRouter: MovieListRouterProtocol {
     var viewController: MovieListViewController!
     
     func proceedToMovieDetails(movie: Movie) {
-        guard let movieDetails = R.storyboard.main.movieDetails() else {
-            return
-        }
-        
+        guard let movieDetails = R.storyboard.main.movieDetails() else { return }
         movieDetails.movie = movie
         
         viewController.navigationController?.pushViewController(movieDetails, animated: true)
     }
-    
 }
-    

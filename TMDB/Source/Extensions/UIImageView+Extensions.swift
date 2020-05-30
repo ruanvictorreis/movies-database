@@ -16,8 +16,14 @@ extension UIImageView {
         request.response { response in
             let statusCode = response.response?.statusCode
             if  statusCode == 200, let data = response.data {
-                self.image = UIImage(data: data)
-                completation?(request)
+                UIView.transition(
+                    with: self, duration: 0.75,
+                    options: .transitionCrossDissolve,
+                    animations: { [weak self] in
+                        self?.image = UIImage(data: data)
+                        completation?(request)
+                    }
+                )
             }
         }
     }

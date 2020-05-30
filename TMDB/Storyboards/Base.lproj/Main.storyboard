@@ -107,7 +107,33 @@
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Pq-Mih" userLabel="Details View" customClass="UICardView" customModule="TMDB" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="240" width="414" height="610"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W78-dT-2Bf" userLabel="Poster View" customClass="UICardView" customModule="TMDB" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="-50" width="140" height="210"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qUd-ij-VLn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="140" height="210"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="qUd-ij-VLn" firstAttribute="leading" secondItem="W78-dT-2Bf" secondAttribute="leading" id="1MA-oE-Kw0"/>
+                                                            <constraint firstAttribute="width" secondItem="W78-dT-2Bf" secondAttribute="height" multiplier="2:3" id="HeC-T4-Tzg"/>
+                                                            <constraint firstAttribute="bottom" secondItem="qUd-ij-VLn" secondAttribute="bottom" id="MKv-iO-Clr"/>
+                                                            <constraint firstItem="qUd-ij-VLn" firstAttribute="top" secondItem="W78-dT-2Bf" secondAttribute="top" id="NPK-ui-TCA"/>
+                                                            <constraint firstAttribute="width" constant="140" id="Ted-WI-DLN"/>
+                                                            <constraint firstAttribute="trailing" secondItem="qUd-ij-VLn" secondAttribute="trailing" id="m8O-to-6Xs"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="W78-dT-2Bf" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="Wyy-e8-FLT"/>
+                                                    <constraint firstItem="W78-dT-2Bf" firstAttribute="top" secondItem="M4l-Pq-Mih" secondAttribute="top" constant="-50" id="mNo-je-lv6"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="20"/>
@@ -151,6 +177,7 @@
                     </view>
                     <connections>
                         <outlet property="backdropImage" destination="5aV-gc-mYR" id="r1Z-wJ-TME"/>
+                        <outlet property="posterImage" destination="qUd-ij-VLn" id="MyK-b4-tKc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhk-h9-ThT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
