@@ -36,6 +36,8 @@
 		15E588752441421200E8576F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E588732441421200E8576F /* LaunchScreen.storyboard */; };
 		15E588802441421200E8576F /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E5887F2441421200E8576F /* TMDBTests.swift */; };
 		15E588942441501500E8576F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E588932441501500E8576F /* R.generated.swift */; };
+		15FE19DC24856E560016F830 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FE19DB24856E560016F830 /* String+Extensions.swift */; };
+		15FE19DE248571060016F830 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FE19DD248571060016F830 /* Date+Extensions.swift */; };
 		6374EF3906BAEA03DB9F03BF /* Pods_TMDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852EA9516139223DA1E3F4C4 /* Pods_TMDBTests.framework */; };
 		92D3F7EC64E3EE2AFE3235B2 /* Pods_TMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791925DA6E1BAFF8162744C5 /* Pods_TMDB.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		15E5887F2441421200E8576F /* TMDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTests.swift; sourceTree = "<group>"; };
 		15E588812441421200E8576F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E588932441501500E8576F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		15FE19DB24856E560016F830 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		15FE19DD248571060016F830 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		165FBF11E00408854C11A2A3 /* Pods-TMDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB.debug.xcconfig"; path = "Target Support Files/Pods-TMDB/Pods-TMDB.debug.xcconfig"; sourceTree = "<group>"; };
 		791925DA6E1BAFF8162744C5 /* Pods_TMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		852EA9516139223DA1E3F4C4 /* Pods_TMDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +120,9 @@
 		153A62642476EA16009D42B6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				15FE19DD248571060016F830 /* Date+Extensions.swift */,
 				15DA06DC247D5669000DFE3E /* R+Extensions.swift */,
+				15FE19DB24856E560016F830 /* String+Extensions.swift */,
 				153A626B24789276009D42B6 /* UIColor+Extensions.swift */,
 				153A62652476EA16009D42B6 /* UIImageView+Extensions.swift */,
 				153A62692478538D009D42B6 /* UIViewController+Extensions.swift */,
@@ -539,6 +545,7 @@
 				15E5886D2441421100E8576F /* MovieListViewController.swift in Sources */,
 				155564B224734FCD007863FE /* MovieCollectionViewCell.swift in Sources */,
 				1562733D2474BD7F00656B5E /* MovieListBuilder.swift in Sources */,
+				15FE19DE248571060016F830 /* Date+Extensions.swift in Sources */,
 				15E2D34F2472F4AA001055FA /* SnakeCaseDecoder.swift in Sources */,
 				153A626C24789276009D42B6 /* UIColor+Extensions.swift in Sources */,
 				156273372474BB6400656B5E /* MovieListInteractor.swift in Sources */,
@@ -551,6 +558,7 @@
 				157D53DF2460F3E100CA72F9 /* MovieListWorker.swift in Sources */,
 				15E2D34A247229CB001055FA /* RequestData.swift in Sources */,
 				157D53EC2461AB8F00CA72F9 /* MoviesListResponse.swift in Sources */,
+				15FE19DC24856E560016F830 /* String+Extensions.swift in Sources */,
 				153A626A2478538D009D42B6 /* UIViewController+Extensions.swift in Sources */,
 				153A62632476E9A0009D42B6 /* MovieAPI.swift in Sources */,
 				153A62662476EA16009D42B6 /* UIImageView+Extensions.swift in Sources */,
