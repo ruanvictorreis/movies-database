@@ -31,17 +31,17 @@ class MovieListViewController: UIViewController {
         fetchMovieList()
     }
     
-    func setupCollectionView() {
+    private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    func fetchMovieList() {
+    private func fetchMovieList() {
         showLoading()
         interactor.fetchMovieList()
     }
     
-    func fetchNextPage() {
+    private func fetchNextPage() {
         showLoading()
         interactor.fetchNextPage()
     }
@@ -96,7 +96,6 @@ extension MovieListViewController: UICollectionViewDelegate {
 
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     
-    // MARK: - Private Properties
     private var margin: CGFloat {
         return 16.0
     }
@@ -105,7 +104,6 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
     
-    // MARK: - Internal Methods
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return insetForSections
