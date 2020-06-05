@@ -28,8 +28,8 @@ struct Movie: Decodable {
     
     let backdropPath: String?
     
-    var rating: String {
-        String(format: "%.0f", voteAverage * 10)
+    var rating: Double {
+        voteAverage * 10
     }
     
     var relaseDateFormatted: String? {

@@ -18,7 +18,7 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var overviewDescription: UILabel!
     
-    @IBOutlet private var circularProgress: UICircularProgressView!
+    @IBOutlet private var circularScore: UIScoreView!
     
     @IBOutlet private var posterImage: UIImageView!
     
@@ -37,10 +37,12 @@ class MovieDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        movieTitle.text = movie.title
         overviewTitle.text = R.Localizable.overview()
+        
+        movieTitle.text = movie.title
         overviewDescription.text = movie.overview
         releaseDate.text = movie.relaseDateFormatted
+        circularScore.score = movie.rating
         
         if let posterPath = movie.posterPath {
             posterImage.load(url: MovieAPI.build(image: posterPath, size: .w500))
@@ -49,30 +51,10 @@ class MovieDetailsViewController: UIViewController {
         if let backdropPath = movie.backdropPath {
             backdropImage.load(url: MovieAPI.build(image: backdropPath, size: .original))
         }
-        
-        setupCircularProgress()
-    }
-    
-    private func setupCircularProgress() {
-        circularProgress.text = "\(movie.rating)%"
-        circularProgress.backgroundLayerColor = .darkness
-        circularProgress.progressBarUnfilledColor = .darkGray
-        
-        if movie.voteAverage >= 7.0 {
-            circularProgress.progressBarFilledColor = .lightGreen
-            circularProgress.progressBarUnfilledColor = .darkGreen
-        } else if movie.voteAverage >= 4.0 {
-            circularProgress.progressBarUnfilledColor = .darkYellow
-            circularProgress.progressBarFilledColor = .lightYellow
-        } else if movie.voteAverage != 0.0 {
-            circularProgress.progressBarUnfilledColor = .darkRed
-            circularProgress.progressBarFilledColor = .lightRed
-        }
-        
     }
     
     private func animateCircularProgress() {
-        circularProgress.animate(
+        circularScore.animate(
             withProgress: CGFloat(movie.voteAverage / 10))
     }
 }

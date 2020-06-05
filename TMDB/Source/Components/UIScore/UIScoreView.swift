@@ -1,5 +1,5 @@
 //
-//  UICircularProgressView.swift
+//  UIScoreView.swift
 //  TMDB
 //
 //  Created by Ruan Reis on 03/06/20.
@@ -9,35 +9,11 @@
 import UIKit
 
 @IBDesignable
-class UICircularProgressView: UIView {
+class UIScoreView: UIView {
 
     // MARK: - Internal Properties
-
-    @IBInspectable var text: String = "NR" {
-        didSet {
-            setupUI()
-        }
-    }
-
-    @IBInspectable var textColor: UIColor = .white {
-        didSet {
-            setupUI()
-        }
-    }
-
-    @IBInspectable var progressBarUnfilledColor: UIColor = .lightGray {
-        didSet {
-            setupUI()
-        }
-    }
-
-    @IBInspectable var progressBarFilledColor: UIColor = .darkGray {
-        didSet {
-            setupUI()
-        }
-    }
-
-    @IBInspectable var backgroundLayerColor: UIColor = .black {
+    
+    @IBInspectable var score: Double = 0.0 {
         didSet {
             setupUI()
         }
@@ -49,6 +25,19 @@ class UICircularProgressView: UIView {
     private var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!
     private var percentageLabel: UILabel = UILabel()
+    
+    private var style: UIScoreViewStyle {
+         switch score {
+         case 70...100:
+             return .green
+         case 50...70:
+             return .yellow
+         case 0...50:
+             return .red
+         default:
+             return .none
+         }
+     }
 
     // MARK: - Lifecycle
 
@@ -80,19 +69,22 @@ class UICircularProgressView: UIView {
         self.layer.cornerRadius = self.frame.size.width / 2
 
         self.backgroundLayer = createCircleShapeLayer(
-            withStrokeColor: backgroundLayerColor, fillColor: .clear)
+            withStrokeColor: style.instance.backgroundColor,
+            fillColor: .clear)
         
         self.backgroundLayer.lineWidth = 10.0
         self.layer.addSublayer(backgroundLayer)
 
         self.trackLayer = createCircleShapeLayer(
-            withStrokeColor: progressBarUnfilledColor, fillColor: backgroundLayerColor)
+            withStrokeColor: style.instance.unfilledColor,
+            fillColor: style.instance.backgroundColor)
         
         self.trackLayer.lineWidth = 5.0
         self.layer.addSublayer(trackLayer)
 
         self.progressLayer = createCircleShapeLayer(
-            withStrokeColor: progressBarFilledColor, fillColor: .clear)
+            withStrokeColor: style.instance.filledColor,
+            fillColor: .clear)
         
         self.progressLayer.lineWidth = 5.0
         self.progressLayer.transform = CATransform3DMakeRotation(-.pi / 2.0, 0.0, 0.0, 1.0)
@@ -100,8 +92,8 @@ class UICircularProgressView: UIView {
         self.layer.addSublayer(progressLayer)
 
         self.percentageLabel.textAlignment = .center
-        self.percentageLabel.text = text
-        self.percentageLabel.textColor = textColor
+        self.percentageLabel.text = "\(String(format: "%.0f", score))%"
+        self.percentageLabel.textColor = style.instance.textColor
         self.percentageLabel.font = .systemFont(ofSize: 12.0, weight: .semibold)
         self.percentageLabel.frame = self.bounds
         self.addSubview(percentageLabel)

@@ -55,6 +55,7 @@ identifier_name:
     - id
     - url
     - key
+    - red
     - GlobalAPIKey
 
 reporter: "xcode"
