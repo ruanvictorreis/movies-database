@@ -28,11 +28,11 @@ class UIScoreView: UIView {
     
     private var style: UIScoreViewStyle {
          switch score {
-         case 70...100:
+         case 7...10:
              return .green
-         case 50...70:
+         case 5...7:
              return .yellow
-         case 0...50:
+         case 0...5:
              return .red
          default:
              return .none
@@ -47,6 +47,11 @@ class UIScoreView: UIView {
     }
     
     // MARK: - Internal Methods
+    
+    /// Method used to animate circular progress bar
+    func animate() {
+        animate(withProgress: CGFloat(score / 10))
+    }
 
     /// Method used to animate circular progress bar
     ///
@@ -90,9 +95,10 @@ class UIScoreView: UIView {
         self.progressLayer.transform = CATransform3DMakeRotation(-.pi / 2.0, 0.0, 0.0, 1.0)
         self.progressLayer.strokeEnd = 0.0
         self.layer.addSublayer(progressLayer)
-
+        
+        let percentage = score * 10
         self.percentageLabel.textAlignment = .center
-        self.percentageLabel.text = "\(String(format: "%.0f", score))%"
+        self.percentageLabel.text = "\(String(format: "%.0f", percentage))%"
         self.percentageLabel.textColor = style.instance.textColor
         self.percentageLabel.font = .systemFont(ofSize: 12.0, weight: .semibold)
         self.percentageLabel.frame = self.bounds

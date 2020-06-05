@@ -24,7 +24,7 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var backdropImage: UIImageView!
     
-    var movie: Movie!
+    var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +33,18 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateCircularProgress()
+        circularScore.animate()
     }
     
     private func setupUI() {
+        guard let movie = self.movie else { return }
+        
         overviewTitle.text = R.Localizable.overview()
         
         movieTitle.text = movie.title
         overviewDescription.text = movie.overview
         releaseDate.text = movie.relaseDateFormatted
-        circularScore.score = movie.rating
+        circularScore.score = movie.voteAverage
         
         if let posterPath = movie.posterPath {
             posterImage.load(url: MovieAPI.build(image: posterPath, size: .w500))
@@ -51,10 +53,5 @@ class MovieDetailsViewController: UIViewController {
         if let backdropPath = movie.backdropPath {
             backdropImage.load(url: MovieAPI.build(image: backdropPath, size: .original))
         }
-    }
-    
-    private func animateCircularProgress() {
-        circularScore.animate(
-            withProgress: CGFloat(movie.voteAverage / 10))
     }
 }
