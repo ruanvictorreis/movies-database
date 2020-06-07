@@ -19,23 +19,3 @@ protocol UIScoreStyleProtocol {
     var backgroundColor: UIColor { get }
     
 }
-
-enum UIScoreViewStyle {
-    case none
-    case red
-    case green
-    case yellow
-    
-    var instance: UIScoreStyleProtocol {
-        switch self {
-        case .red:
-            return Red()
-        case .green:
-            return Green()
-        case . yellow:
-            return Yellow()
-        default:
-            return Default()
-        }
-    }
-}

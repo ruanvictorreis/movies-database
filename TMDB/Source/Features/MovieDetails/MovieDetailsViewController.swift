@@ -33,7 +33,7 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        circularScore.animate()
+        circularScore.animate(withProgress: movie?.voteAverage)
     }
     
     private func setupUI() {
@@ -44,7 +44,7 @@ class MovieDetailsViewController: UIViewController {
         movieTitle.text = movie.title
         overviewDescription.text = movie.overview
         releaseDate.text = movie.relaseDateFormatted
-        circularScore.score = movie.voteAverage
+        circularScore.setupStyle(forScore: movie.voteAverage)
         
         if let posterPath = movie.posterPath {
             posterImage.load(url: MovieAPI.build(image: posterPath, size: .w500))

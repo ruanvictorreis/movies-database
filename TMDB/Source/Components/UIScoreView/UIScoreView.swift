@@ -2,7 +2,7 @@
 //  UIScoreView.swift
 //  TMDB
 //
-//  Created by Ruan Reis on 03/06/20.
+//  Created by Ruan Reis on 06/06/20.
 //  Copyright © 2020 Ruan Reis. All rights reserved.
 //
 
@@ -12,47 +12,49 @@ import UIKit
 class UIScoreView: UIView {
 
     // MARK: - Internal Properties
-    
-    @IBInspectable var score: Double = 0.0 {
+    @IBInspectable var text: String = "NR" {
+        didSet {
+            setupUI()
+        }
+    }
+
+    @IBInspectable var textColor: UIColor = .white {
+        didSet {
+            setupUI()
+        }
+    }
+
+    @IBInspectable var progressBarUnfilledColor: UIColor = .lightGray {
+        didSet {
+            setupUI()
+        }
+    }
+
+    @IBInspectable var progressBarFilledColor: UIColor = .darkGray {
+        didSet {
+            setupUI()
+        }
+    }
+
+    @IBInspectable var backgroundLayerColor: UIColor = .black {
         didSet {
             setupUI()
         }
     }
 
     // MARK: - Private Properties
-
     private var backgroundLayer: CAShapeLayer!
     private var progressLayer: CAShapeLayer!
     private var trackLayer: CAShapeLayer!
     private var percentageLabel: UILabel = UILabel()
-    
-    private var style: UIScoreViewStyle {
-         switch score {
-         case 7...10:
-             return .green
-         case 5...7:
-             return .yellow
-         case 0...5:
-             return .red
-         default:
-             return .none
-         }
-     }
 
     // MARK: - Lifecycle
-
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setupUI()
     }
     
     // MARK: - Internal Methods
-    
-    /// Method used to animate circular progress bar
-    func animate() {
-        animate(withProgress: CGFloat(score / 10))
-    }
-
     /// Method used to animate circular progress bar
     ///
     /// - Parameter progress: The value of this property must be in the range 0.0 to 1.0.
@@ -68,40 +70,32 @@ class UIScoreView: UIView {
     }
 
     // MARK: - Private Methods
-
     private func setupUI() {
         self.backgroundColor = .clear
         self.layer.cornerRadius = self.frame.size.width / 2
 
-        self.backgroundLayer = createCircleShapeLayer(
-            withStrokeColor: style.instance.backgroundColor,
-            fillColor: .clear)
-        
-        self.backgroundLayer.lineWidth = 10.0
+        backgroundLayer = createCircleShapeLayer(withStrokeColor: backgroundLayerColor,
+                                                           fillColor: .clear)
+        backgroundLayer.lineWidth = 10.0
         self.layer.addSublayer(backgroundLayer)
 
-        self.trackLayer = createCircleShapeLayer(
-            withStrokeColor: style.instance.unfilledColor,
-            fillColor: style.instance.backgroundColor)
-        
-        self.trackLayer.lineWidth = 5.0
+        trackLayer = self.createCircleShapeLayer(withStrokeColor: progressBarUnfilledColor,
+                                                      fillColor: backgroundLayerColor)
+        trackLayer.lineWidth = 5.0
         self.layer.addSublayer(trackLayer)
 
-        self.progressLayer = createCircleShapeLayer(
-            withStrokeColor: style.instance.filledColor,
-            fillColor: .clear)
-        
-        self.progressLayer.lineWidth = 5.0
-        self.progressLayer.transform = CATransform3DMakeRotation(-.pi / 2.0, 0.0, 0.0, 1.0)
-        self.progressLayer.strokeEnd = 0.0
+        progressLayer = createCircleShapeLayer(withStrokeColor: progressBarFilledColor,
+                                                         fillColor: .clear)
+        progressLayer.lineWidth = 5.0
+        progressLayer.transform = CATransform3DMakeRotation(-.pi / 2.0, 0.0, 0.0, 1.0)
+        progressLayer.strokeEnd = 0.0
         self.layer.addSublayer(progressLayer)
-        
-        let percentage = score * 10
-        self.percentageLabel.textAlignment = .center
-        self.percentageLabel.text = "\(String(format: "%.0f", percentage))%"
-        self.percentageLabel.textColor = style.instance.textColor
-        self.percentageLabel.font = .systemFont(ofSize: 12.0, weight: .semibold)
-        self.percentageLabel.frame = self.bounds
+
+        percentageLabel.textAlignment = .center
+        percentageLabel.text = text
+        percentageLabel.textColor = textColor
+        percentageLabel.font = .systemFont(ofSize: 12.0, weight: .semibold)
+        percentageLabel.frame = self.bounds
         self.addSubview(percentageLabel)
 
         self.layoutIfNeeded()
@@ -109,6 +103,7 @@ class UIScoreView: UIView {
     }
 
     private func createCircleShapeLayer(withStrokeColor strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
+
         let layer = CAShapeLayer()
         let circularPath = UIBezierPath(
             arcCenter: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2),
@@ -125,5 +120,26 @@ class UIScoreView: UIView {
         layer.frame = self.bounds
 
         return layer
+    }
+}
+
+extension UIScoreView {
+    
+    func setupStyle(forScore score: Double) {
+        self.text = "\(String(format: "%.0f", score * 10))%"
+        setupStyle(withStyle: StyleClassifier(score: score).style)
+    }
+    
+    func setupStyle(withStyle style: UIScoreStyleProtocol) {
+        textColor = style.textColor
+        progressBarFilledColor = style.filledColor
+        progressBarUnfilledColor = style.unfilledColor
+        backgroundLayerColor = style.backgroundColor
+    }
+    
+    func animate(withProgress progress: Double?) {
+        if let progress = progress {
+            animate(withProgress: CGFloat(progress / 10))
+        }
     }
 }
