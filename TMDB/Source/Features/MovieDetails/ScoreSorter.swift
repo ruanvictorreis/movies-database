@@ -16,7 +16,7 @@ struct ScoreSorter {
             return Green()
         case 5...7:
             return Yellow()
-        case 0...5:
+        case 1...5:
             return Red()
         default:
            return Default()
