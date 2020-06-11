@@ -82,7 +82,6 @@ extension MovieListViewController: MovieListViewControllerProtocol {
     }
 }
 
-
 // MARK: - UICollectionViewDatasource extension
 
 extension MovieListViewController: UICollectionViewDataSource {
