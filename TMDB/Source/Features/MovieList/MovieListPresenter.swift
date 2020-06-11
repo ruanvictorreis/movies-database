@@ -18,7 +18,11 @@ protocol MovieListPresenterProtocol {
 
 class MovieListPresenter: MovieListPresenterProtocol {
     
+    // MARK: - VIP properties
+    
     var viewController: MovieListViewControllerProtocol!
+    
+    // MARK: - Public functions
     
     func showMoviesList(_ response: MoviesListResponse?) {
         guard let moviesList = response?.results else {

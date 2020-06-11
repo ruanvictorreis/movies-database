@@ -18,15 +18,23 @@ protocol MovieListInteractorProtocol {
 
 class MovieListInteractor: MovieListInteractorProtocol {
     
+    // MARK: - VIP properties
+    
     var presenter: MovieListPresenterProtocol!
+    
+    // MARK: - Private properties
     
     private var section: Section = .popular
     
     private let movieListWorker: MovieListWorkerProtocol
     
+    // MARK: - Init
+    
     init() {
         self.movieListWorker = MovieListWorker()
     }
+    
+    // MARK: - Public functions
     
     func fetchMovieList() {
         movieListWorker

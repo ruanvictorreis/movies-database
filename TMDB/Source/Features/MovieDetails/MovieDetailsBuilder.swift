@@ -1,22 +1,22 @@
 //
-//  MovieListBuilder.swift
+//  MovieDetailsBuilder.swift
 //  TMDB
 //
-//  Created by Ruan Reis on 19/05/20.
+//  Created by Ruan Reis on 11/06/20.
 //  Copyright © 2020 Ruan Reis. All rights reserved.
 //
 
 import Foundation
 
-class MovieListBuilder {
+class MovieDetailsBuider {
     
     // MARK: - Public functions
     
-    func build() -> MovieListViewController? {
-        let viewController = R.storyboard.main.movieListViewController()
-        let interactor = MovieListInteractor()
-        let presenter = MovieListPresenter()
-        let router = MovieListRouter()
+    func build(movie: Movie) -> MovieDetailsViewController? {
+        let viewController = R.storyboard.main.movieDetails()
+        let interactor = MovieDetailsInteractor()
+        let presenter = MovieDetailsPresenter()
+        let router = MovieDetailsRouter()
         
         viewController?.interactor = interactor
         viewController?.router = router
@@ -24,6 +24,9 @@ class MovieListBuilder {
         presenter.viewController = viewController
         router.viewController = viewController
         
+        viewController?.movie = movie
+        
         return viewController
     }
+    
 }

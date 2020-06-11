@@ -8,7 +8,19 @@
 
 import UIKit
 
+protocol MovieDetailsViewControllerProtocol: AnyObject {
+    
+}
+
 class MovieDetailsViewController: UIViewController {
+
+    // MARK: - VIP properties
+    
+    var interactor: MovieDetailInteractorProtocol!
+    
+    var router: MovieDetailRouterProtocol!
+    
+    // MARK: - IBOutlets
     
     @IBOutlet private var movieTitle: UILabel!
     
@@ -24,7 +36,11 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var backdropImage: UIImageView!
     
-    var movie: Movie?
+    // MARK: - Public properties
+    
+    var movie: Movie!
+    
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +52,9 @@ class MovieDetailsViewController: UIViewController {
         scoreView.animate()
     }
     
+    // MARK: - Private functions
+    
     private func setupUI() {
-        guard let movie = self.movie else { return }
-        
         overviewTitle.text = R.Localizable.overview()
         
         movieTitle.text = movie.title
@@ -57,4 +73,10 @@ class MovieDetailsViewController: UIViewController {
             backdropImage.load(url: MovieAPI.build(image: backdropPath, size: .original))
         }
     }
+}
+
+// MARK: - Protocol requirements extension
+
+extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
+    
 }

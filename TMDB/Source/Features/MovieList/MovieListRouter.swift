@@ -16,12 +16,17 @@ protocol MovieListRouterProtocol {
 
 class MovieListRouter: MovieListRouterProtocol {
     
-    var viewController: MovieListViewController!
+    // MARK: - VIP properties
+    
+    weak var viewController: MovieListViewController!
+    
+    // MARK: - Public functions
     
     func proceedToMovieDetails(movie: Movie) {
-        guard let movieDetails = R.storyboard.main.movieDetails() else { return }
-        movieDetails.movie = movie
+        guard let nextScene = MovieDetailsBuider().build(movie: movie)
+            else { return }
         
-        viewController.navigationController?.pushViewController(movieDetails, animated: true)
+        viewController.navigationController?
+            .pushViewController(nextScene, animated: true)
     }
 }
