@@ -6,16 +6,30 @@
 //  Copyright © 2020 Ruan Reis. All rights reserved.
 //
 
+import Alamofire
 import Foundation
 
 protocol MovieDetailPresenterProtocol {
     
+    func showMovieDetails(_ response: MovieDetailsResponse?)
+    
+    func showMovieDetailsError(_ error: AFError?)
+    
 }
 
 class MovieDetailsPresenter: MovieDetailPresenterProtocol {
-    
+
     // MARK: - VIP properties
     
     weak var viewController: MovieDetailsViewControllerProtocol!
     
+    // MARK: - Public functions
+    
+    func showMovieDetails(_ response: MovieDetailsResponse?) {
+        
+    }
+    
+    func showMovieDetailsError(_ error: AFError?) {
+        
+    }
 }

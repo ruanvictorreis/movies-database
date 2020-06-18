@@ -10,6 +10,7 @@ import Foundation
 
 protocol MovieDetailInteractorProtocol {
     
+    func fetchMovieDetails(of movieId: Int)
 }
 
 class MovieDetailsInteractor: MovieDetailInteractorProtocol {
@@ -18,4 +19,26 @@ class MovieDetailsInteractor: MovieDetailInteractorProtocol {
     
     var presenter: MovieDetailPresenterProtocol!
     
+    // MARK: - Private properties
+    
+    private let movieDetailsWorker: MovieDetailsWorkerProtocol
+    
+    // MARK: - Init
+    
+    init() {
+        self.movieDetailsWorker = MovieDetailsWorker()
+    }
+    
+    // MARK: - Public functions
+    
+    func fetchMovieDetails(of movieId: Int) {
+        movieDetailsWorker.fetchMovieDetails(
+            of: movieId,
+            sucess: { [weak self] response in
+                self?.presenter.showMovieDetails(response)
+            },
+            failure: { [weak self] error in
+                self?.presenter.showMovieDetailsError(error)
+            })
+    }
 }

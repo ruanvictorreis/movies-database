@@ -45,6 +45,7 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fetchMovieDetails()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,6 +54,10 @@ class MovieDetailsViewController: UIViewController {
     }
     
     // MARK: - Private functions
+    
+    private func fetchMovieDetails() {
+        interactor.fetchMovieDetails(of: movie.id)
+    }
     
     private func setupUI() {
         overviewTitle.text = R.Localizable.overview()
