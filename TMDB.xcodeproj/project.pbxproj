@@ -30,6 +30,8 @@
 		158DFB38249AF95A005B6AAD /* MovieDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB37249AF95A005B6AAD /* MovieDetailsWorker.swift */; };
 		158DFB3A249B0F5D005B6AAD /* MovieDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB39249B0F5D005B6AAD /* MovieDetailsResponse.swift */; };
 		158DFB3C249B11CE005B6AAD /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB3B249B11CE005B6AAD /* Genre.swift */; };
+		158DFB3E249B19EB005B6AAD /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB3D249B19EB005B6AAD /* Video.swift */; };
+		158DFB40249B1A62005B6AAD /* MovieTrailerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB3F249B1A62005B6AAD /* MovieTrailerResponse.swift */; };
 		15C58EEB247F458000E5958D /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C58EEA247F458000E5958D /* MovieDetailsViewController.swift */; };
 		15DA06D12479CD4B000DFE3E /* UICardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DA06D02479CD4B000DFE3E /* UICardView.swift */; };
 		15DA06D8247CCC53000DFE3E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15DA06DA247CCC53000DFE3E /* Localizable.strings */; };
@@ -90,6 +92,8 @@
 		158DFB37249AF95A005B6AAD /* MovieDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsWorker.swift; sourceTree = "<group>"; };
 		158DFB39249B0F5D005B6AAD /* MovieDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsResponse.swift; sourceTree = "<group>"; };
 		158DFB3B249B11CE005B6AAD /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		158DFB3D249B19EB005B6AAD /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		158DFB3F249B1A62005B6AAD /* MovieTrailerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerResponse.swift; sourceTree = "<group>"; };
 		15C58EEA247F458000E5958D /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		15DA06D02479CD4B000DFE3E /* UICardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICardView.swift; sourceTree = "<group>"; };
 		15DA06D9247CCC53000DFE3E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				157D53E8246106FB00CA72F9 /* Movie.swift */,
 				158DFB3B249B11CE005B6AAD /* Genre.swift */,
+				158DFB3D249B19EB005B6AAD /* Video.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			children = (
 				158DFB39249B0F5D005B6AAD /* MovieDetailsResponse.swift */,
 				158DFB37249AF95A005B6AAD /* MovieDetailsWorker.swift */,
+				158DFB3F249B1A62005B6AAD /* MovieTrailerResponse.swift */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -643,6 +649,7 @@
 				15F23BB52489DE4D00876772 /* UIScoreViewStyle.swift in Sources */,
 				157D53DF2460F3E100CA72F9 /* MovieListWorker.swift in Sources */,
 				15F23BBA2489E0C800876772 /* Yellow.swift in Sources */,
+				158DFB3E249B19EB005B6AAD /* Video.swift in Sources */,
 				15F23BBC2489E11600876772 /* Red.swift in Sources */,
 				158DFB38249AF95A005B6AAD /* MovieDetailsWorker.swift in Sources */,
 				15E2D34A247229CB001055FA /* RequestData.swift in Sources */,
@@ -652,6 +659,7 @@
 				153A626A2478538D009D42B6 /* UIViewController+Extensions.swift in Sources */,
 				157BEB262492ED70004141A6 /* MovieDetailsPresenter.swift in Sources */,
 				153A62632476E9A0009D42B6 /* MovieAPI.swift in Sources */,
+				158DFB40249B1A62005B6AAD /* MovieTrailerResponse.swift in Sources */,
 				157BEB242492ED23004141A6 /* MovieDetailsInteractor.swift in Sources */,
 				157BEB282492EDB1004141A6 /* MovieDetailsRouter.swift in Sources */,
 				153A62662476EA16009D42B6 /* UIImageView+Extensions.swift in Sources */,

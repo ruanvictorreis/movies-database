@@ -18,4 +18,6 @@ struct MovieDetailsResponse: Decodable {
     
     let genres: [Genre]
     
+    let videos: MovieTrailerResponse
+    
 }

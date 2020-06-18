@@ -26,10 +26,10 @@ class MovieDetailsPresenter: MovieDetailPresenterProtocol {
     // MARK: - Public functions
     
     func showMovieDetails(_ response: MovieDetailsResponse?) {
-        
+        print(response)
     }
     
     func showMovieDetailsError(_ error: AFError?) {
-        
+        print(error)
     }
 }
