@@ -18,7 +18,7 @@ protocol MovieDetailPresenterProtocol {
 }
 
 class MovieDetailsPresenter: MovieDetailPresenterProtocol {
-
+    
     // MARK: - VIP properties
     
     weak var viewController: MovieDetailsViewControllerProtocol!
@@ -26,10 +26,12 @@ class MovieDetailsPresenter: MovieDetailPresenterProtocol {
     // MARK: - Public functions
     
     func showMovieDetails(_ response: MovieDetailsResponse?) {
-        print(response)
+        guard let movieDetails = response else { return }
+        let details = Details(movieDetails)
+        viewController.showMovieDetails(details)
     }
     
     func showMovieDetailsError(_ error: AFError?) {
-        print(error)
+        
     }
 }

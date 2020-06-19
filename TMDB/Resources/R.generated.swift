@@ -124,8 +124,20 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
     struct localizable {
+      /// en translation: Budget: 
+      ///
+      /// Locales: en, pt-BR
+      static let budget = Rswift.StringResource(key: "budget", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
+      /// en translation: Duration: 
+      ///
+      /// Locales: en, pt-BR
+      static let duration = Rswift.StringResource(key: "duration", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
+      /// en translation: Informations
+      ///
+      /// Locales: en, pt-BR
+      static let informations = Rswift.StringResource(key: "informations", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
       /// en translation: Oops, an error has occurred!
       ///
       /// Locales: en, pt-BR
@@ -142,6 +154,51 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, pt-BR
       static let language = Rswift.StringResource(key: "language", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
+
+      /// en translation: Budget: 
+      ///
+      /// Locales: en, pt-BR
+      static func budget(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("budget", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "budget"
+        }
+
+        return NSLocalizedString("budget", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Duration: 
+      ///
+      /// Locales: en, pt-BR
+      static func duration(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("duration", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "duration"
+        }
+
+        return NSLocalizedString("duration", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Informations
+      ///
+      /// Locales: en, pt-BR
+      static func informations(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("informations", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "informations"
+        }
+
+        return NSLocalizedString("informations", bundle: bundle, comment: "")
+      }
 
       /// en translation: Oops, an error has occurred!
       ///

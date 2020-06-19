@@ -10,9 +10,9 @@ import Foundation
 
 struct MovieDetailsResponse: Decodable {
     
-    let budget: Int
+    let budget: Double
     
-    let revenue: Int
+    let revenue: Double
     
     let runtime: Int
     

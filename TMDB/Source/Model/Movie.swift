@@ -31,6 +31,6 @@ struct Movie: Decodable {
     var relaseDateFormatted: String? {
         releaseDate
             .asDate(format: "yyyy-MM-dd")?
-            .formattedString
+            .stringFormat
     }
 }

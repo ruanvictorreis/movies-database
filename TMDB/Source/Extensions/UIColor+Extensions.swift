@@ -26,6 +26,10 @@ extension UIColor {
         return UIColor(red: 0.05, green: 0.1, blue: 0.13, alpha: 1)
     }
     
+    public class var lightGray: UIColor {
+        return UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.8)
+    }
+    
     public class var darkGray: UIColor {
         return UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
     }
