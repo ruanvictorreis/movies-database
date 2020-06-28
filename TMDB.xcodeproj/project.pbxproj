@@ -188,14 +188,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		157BEB202492EBCB004141A6 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				158795AA248C7A21002B796C /* ScoreSorter.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		157D53DD2460F3B400CA72F9 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,10 +260,17 @@
 			path = MovieDetails;
 			sourceTree = "<group>";
 		};
+		15C23A6A24A839F600C8B456 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				158795AA248C7A21002B796C /* ScoreSorter.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		15C58EE9247F44E900E5958D /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
-				157BEB202492EBCB004141A6 /* Utils */,
 				157BEB212492EC1C004141A6 /* MovieDetailsBuilder.swift */,
 				157BEB232492ED23004141A6 /* MovieDetailsInteractor.swift */,
 				157BEB252492ED70004141A6 /* MovieDetailsPresenter.swift */,
@@ -304,6 +303,7 @@
 			children = (
 				156150BC249C4F9D0044090E /* Builders */,
 				15E2D34D2472F48D001055FA /* Decoding */,
+				15C23A6A24A839F600C8B456 /* Tools */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

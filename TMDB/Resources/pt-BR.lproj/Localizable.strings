@@ -12,9 +12,15 @@
 
 "informations" = "Informações";
 
+"castCrew" = "Elenco & Equipe";
+
 "duration" = "Duração: ";
 
 "budget" = "Orçamento: ";
+
+"revenue" = "Bilheteria: ";
+
+"genres" = "Gêneros: ";
 
 "errorTitle"= "Ops, ocorreu um erro!";
 

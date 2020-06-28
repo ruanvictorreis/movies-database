@@ -93,20 +93,20 @@
             <objects>
                 <viewController storyboardIdentifier="movieDetails" id="fAw-sH-PKs" customClass="MovieDetailsViewController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DWQ-6J-kG7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0z-cz-Km7">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="922"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IrR-Gc-D9Y" userLabel="Scroll Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-gc-mYR">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Pq-Mih" userLabel="Details View" customClass="UICardView" customModule="TMDB" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="240" width="414" height="610"/>
+                                                <rect key="frame" x="0.0" y="240" width="414" height="660"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W78-dT-2Bf" userLabel="Poster View" customClass="UICardView" customModule="TMDB" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="-50" width="140" height="210"/>
@@ -191,22 +191,44 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revenue:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-Sm-ITt">
+                                                        <rect key="frame" x="16" y="547.5" width="382" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsG-su-RfX">
+                                                        <rect key="frame" x="16" y="583.5" width="382" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast &amp; Crew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGl-XK-Kun">
+                                                        <rect key="frame" x="16" y="627" width="382" height="24"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="jAg-rm-Rmg" secondAttribute="trailing" constant="16" id="1Mm-Sh-F4i"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dGl-XK-Kun" secondAttribute="trailing" constant="16" id="5cc-IU-Ah2"/>
                                                     <constraint firstItem="EMa-ze-KyH" firstAttribute="leading" secondItem="W78-dT-2Bf" secondAttribute="trailing" constant="16" id="6Ky-qh-qUw"/>
+                                                    <constraint firstItem="dGl-XK-Kun" firstAttribute="top" secondItem="QsG-su-RfX" secondAttribute="bottom" constant="24" id="81c-ZE-e2s"/>
                                                     <constraint firstAttribute="trailing" secondItem="boR-B2-Bzj" secondAttribute="trailing" constant="16" id="8jP-R0-rSJ"/>
                                                     <constraint firstItem="XI8-Kg-ny8" firstAttribute="top" secondItem="jAg-rm-Rmg" secondAttribute="bottom" constant="16" id="AC0-nr-5ZQ"/>
                                                     <constraint firstItem="jAg-rm-Rmg" firstAttribute="top" secondItem="SgH-jb-Tm4" secondAttribute="bottom" constant="24" id="Cxs-rx-eHV"/>
                                                     <constraint firstItem="Gqq-OR-7J2" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="ESL-3g-A1i"/>
                                                     <constraint firstItem="XI8-Kg-ny8" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="Eik-kJ-W90"/>
                                                     <constraint firstAttribute="trailing" secondItem="EMa-ze-KyH" secondAttribute="trailing" constant="16" id="EoA-Gp-9Py"/>
+                                                    <constraint firstItem="QsG-su-RfX" firstAttribute="top" secondItem="X1e-Sm-ITt" secondAttribute="bottom" constant="16" id="F4K-Mt-0HZ"/>
                                                     <constraint firstItem="0Lx-zK-c0E" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="FDr-Xw-btq"/>
                                                     <constraint firstAttribute="trailing" secondItem="0Lx-zK-c0E" secondAttribute="trailing" constant="16" id="Ijk-nb-Y8f"/>
                                                     <constraint firstItem="0Lx-zK-c0E" firstAttribute="top" secondItem="XI8-Kg-ny8" secondAttribute="bottom" constant="16" id="KPV-6H-iP6"/>
                                                     <constraint firstItem="EMa-ze-KyH" firstAttribute="top" secondItem="boR-B2-Bzj" secondAttribute="bottom" constant="8" id="LAk-Xm-QyX"/>
                                                     <constraint firstItem="SgH-jb-Tm4" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="Lf4-oS-TuU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QsG-su-RfX" secondAttribute="trailing" constant="16" id="Lww-MP-Dcp"/>
                                                     <constraint firstAttribute="trailing" secondItem="XI8-Kg-ny8" secondAttribute="trailing" constant="16" id="OBV-w1-QRC"/>
                                                     <constraint firstItem="an0-rI-exg" firstAttribute="leading" secondItem="W78-dT-2Bf" secondAttribute="trailing" constant="16" id="R88-ut-MX6"/>
                                                     <constraint firstItem="SgH-jb-Tm4" firstAttribute="top" secondItem="Gqq-OR-7J2" secondAttribute="bottom" constant="8" id="ScI-x3-yJ4"/>
@@ -214,10 +236,15 @@
                                                     <constraint firstItem="W78-dT-2Bf" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="Wyy-e8-FLT"/>
                                                     <constraint firstAttribute="trailing" secondItem="Gqq-OR-7J2" secondAttribute="trailing" constant="16" id="Zfw-mh-VEy"/>
                                                     <constraint firstItem="Gqq-OR-7J2" firstAttribute="top" secondItem="W78-dT-2Bf" secondAttribute="bottom" constant="24" id="Zqs-Nv-Xgh"/>
+                                                    <constraint firstItem="X1e-Sm-ITt" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="Zx1-vO-ndC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="X1e-Sm-ITt" secondAttribute="trailing" constant="16" id="bli-G6-9Wk"/>
+                                                    <constraint firstItem="dGl-XK-Kun" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="chf-2B-bw7"/>
                                                     <constraint firstItem="boR-B2-Bzj" firstAttribute="top" secondItem="M4l-Pq-Mih" secondAttribute="top" constant="16" id="gRP-Hn-Ak6"/>
+                                                    <constraint firstItem="X1e-Sm-ITt" firstAttribute="top" secondItem="0Lx-zK-c0E" secondAttribute="bottom" constant="16" id="kpx-3o-4jn"/>
                                                     <constraint firstItem="W78-dT-2Bf" firstAttribute="top" secondItem="M4l-Pq-Mih" secondAttribute="top" constant="-50" id="mNo-je-lv6"/>
                                                     <constraint firstItem="jAg-rm-Rmg" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="rE9-BO-96G"/>
                                                     <constraint firstAttribute="trailing" secondItem="SgH-jb-Tm4" secondAttribute="trailing" constant="16" id="s8u-Xi-GPI"/>
+                                                    <constraint firstItem="QsG-su-RfX" firstAttribute="leading" secondItem="M4l-Pq-Mih" secondAttribute="leading" constant="16" id="sOF-OK-sVI"/>
                                                     <constraint firstItem="boR-B2-Bzj" firstAttribute="leading" secondItem="W78-dT-2Bf" secondAttribute="trailing" constant="16" id="wl6-f4-Pqp"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -234,7 +261,7 @@
                                             <constraint firstItem="M4l-Pq-Mih" firstAttribute="leading" secondItem="IrR-Gc-D9Y" secondAttribute="leading" id="Q8f-Tq-nhI"/>
                                             <constraint firstItem="M4l-Pq-Mih" firstAttribute="top" secondItem="5aV-gc-mYR" secondAttribute="bottom" constant="-20" id="YzL-NK-k5H"/>
                                             <constraint firstAttribute="trailing" secondItem="M4l-Pq-Mih" secondAttribute="trailing" id="e7k-zA-dr5"/>
-                                            <constraint firstAttribute="height" constant="850" id="fdi-DB-Piq"/>
+                                            <constraint firstAttribute="height" constant="900" id="fdi-DB-Piq"/>
                                             <constraint firstAttribute="bottom" secondItem="M4l-Pq-Mih" secondAttribute="bottom" id="qBT-rc-2wW"/>
                                             <constraint firstItem="M4l-Pq-Mih" firstAttribute="top" secondItem="IrR-Gc-D9Y" secondAttribute="top" constant="240" id="vmz-iR-Sqd"/>
                                         </constraints>
@@ -261,16 +288,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kmE-kn-o5N"/>
                     </view>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="backdropImage" destination="5aV-gc-mYR" id="r1Z-wJ-TME"/>
                         <outlet property="budget" destination="0Lx-zK-c0E" id="gpP-I1-ddT"/>
+                        <outlet property="castCrewTitle" destination="dGl-XK-Kun" id="eE8-cy-3dL"/>
                         <outlet property="duration" destination="XI8-Kg-ny8" id="SkI-XS-Wl5"/>
+                        <outlet property="genres" destination="QsG-su-RfX" id="XcK-6t-Beh"/>
                         <outlet property="informationTitle" destination="jAg-rm-Rmg" id="a3D-dI-WyD"/>
                         <outlet property="movieTitle" destination="boR-B2-Bzj" id="odB-da-TyY"/>
                         <outlet property="overviewDescription" destination="SgH-jb-Tm4" id="y9F-yq-B8v"/>
                         <outlet property="overviewTitle" destination="Gqq-OR-7J2" id="PPi-hZ-eOb"/>
                         <outlet property="posterImage" destination="qUd-ij-VLn" id="MyK-b4-tKc"/>
                         <outlet property="releaseDate" destination="EMa-ze-KyH" id="56b-wy-mtB"/>
+                        <outlet property="revenue" destination="X1e-Sm-ITt" id="U2m-BE-mz4"/>
                         <outlet property="scoreView" destination="an0-rI-exg" id="0mO-mA-5oo"/>
                     </connections>
                 </viewController>

@@ -124,16 +124,24 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
       /// en translation: Budget: 
       ///
       /// Locales: en, pt-BR
       static let budget = Rswift.StringResource(key: "budget", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
+      /// en translation: Cast & Crew
+      ///
+      /// Locales: en, pt-BR
+      static let castCrew = Rswift.StringResource(key: "castCrew", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
       /// en translation: Duration: 
       ///
       /// Locales: en, pt-BR
       static let duration = Rswift.StringResource(key: "duration", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
+      /// en translation: Genres: 
+      ///
+      /// Locales: en, pt-BR
+      static let genres = Rswift.StringResource(key: "genres", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
       /// en translation: Informations
       ///
       /// Locales: en, pt-BR
@@ -146,6 +154,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, pt-BR
       static let overview = Rswift.StringResource(key: "overview", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
+      /// en translation: Revenue: 
+      ///
+      /// Locales: en, pt-BR
+      static let revenue = Rswift.StringResource(key: "revenue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-BR"], comment: nil)
       /// en translation: Sorry, something went wrong. Try again later.
       ///
       /// Locales: en, pt-BR
@@ -170,6 +182,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("budget", bundle: bundle, comment: "")
       }
 
+      /// en translation: Cast & Crew
+      ///
+      /// Locales: en, pt-BR
+      static func castCrew(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("castCrew", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "castCrew"
+        }
+
+        return NSLocalizedString("castCrew", bundle: bundle, comment: "")
+      }
+
       /// en translation: Duration: 
       ///
       /// Locales: en, pt-BR
@@ -183,6 +210,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("duration", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Genres: 
+      ///
+      /// Locales: en, pt-BR
+      static func genres(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("genres", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "genres"
+        }
+
+        return NSLocalizedString("genres", bundle: bundle, comment: "")
       }
 
       /// en translation: Informations
@@ -228,6 +270,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("overview", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Revenue: 
+      ///
+      /// Locales: en, pt-BR
+      static func revenue(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("revenue", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "revenue"
+        }
+
+        return NSLocalizedString("revenue", bundle: bundle, comment: "")
       }
 
       /// en translation: Sorry, something went wrong. Try again later.

@@ -39,9 +39,15 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var informationTitle: UILabel!
     
+    @IBOutlet private var castCrewTitle: UILabel!
+    
     @IBOutlet private var duration: UILabel!
     
     @IBOutlet private var budget: UILabel!
+    
+    @IBOutlet private var revenue: UILabel!
+    
+    @IBOutlet private var genres: UILabel!
     
     // MARK: - Public properties
     
@@ -67,10 +73,13 @@ class MovieDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        overviewTitle.text = R.Localizable.overview()
-        informationTitle.text = R.Localizable.informations()
-        duration.text = R.Localizable.duration()
         budget.text = R.Localizable.budget()
+        genres.text = R.Localizable.genres()
+        revenue.text = R.Localizable.revenue()
+        duration.text = R.Localizable.duration()
+        overviewTitle.text = R.Localizable.overview()
+        castCrewTitle.text = R.Localizable.castCrew()
+        informationTitle.text = R.Localizable.informations()
         
         movieTitle.text = movie.title
         overviewDescription.text = movie.overview
@@ -93,9 +102,19 @@ class MovieDetailsViewController: UIViewController {
         let regular: UIFont = .systemFont(ofSize: 16, weight: .regular)
         let semibold: UIFont = .systemFont(ofSize: 16, weight: .semibold)
         
+        let attrGenres = AttributedStringBuilder()
+            .text(R.Localizable.genres(), font: semibold, color: .lightGray)
+            .text(details.genres, font: regular, color: .lightGray)
+            .build()
+        
         let attrBudget = AttributedStringBuilder()
             .text(R.Localizable.budget(), font: semibold, color: .lightGray)
             .text(details.budget, font: regular, color: .lightGray)
+            .build()
+        
+        let attrRevenue = AttributedStringBuilder()
+            .text(R.Localizable.revenue(), font: semibold, color: .lightGray)
+            .text(details.revenue, font: regular, color: .lightGray)
             .build()
         
         let attrDuration = AttributedStringBuilder()
@@ -103,7 +122,9 @@ class MovieDetailsViewController: UIViewController {
             .text(details.duration, font: regular, color: .lightGray)
             .build()
         
+        genres.attributedText = attrGenres
         budget.attributedText = attrBudget
+        revenue.attributedText = attrRevenue
         duration.attributedText = attrDuration
     }
 }
