@@ -82,7 +82,7 @@ extension MovieListViewController: MovieListViewControllerProtocol {
     }
 }
 
-// MARK: - UICollectionViewDatasource extension
+// MARK: - Extension for UICollectionViewDatasource
 
 extension MovieListViewController: UICollectionViewDataSource {
     
@@ -96,9 +96,7 @@ extension MovieListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath)
-            as? MovieCollectionViewCell else {
-                return UICollectionViewCell()
-        }
+            as? MovieCollectionViewCell else { return UICollectionViewCell() }
         
         cell.setup(movie: moviesList[indexPath.item])
         
@@ -106,7 +104,7 @@ extension MovieListViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionViewDelegateExtension
+// MARK: - Extension for UICollectionViewDelegate
 
 extension MovieListViewController: UICollectionViewDelegate {
     
@@ -133,7 +131,7 @@ extension MovieListViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout extension
+// MARK: - Extension for UICollectionViewDelegateFlowLayout
 
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     

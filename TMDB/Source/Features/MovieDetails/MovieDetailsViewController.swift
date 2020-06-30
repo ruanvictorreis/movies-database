@@ -148,11 +148,13 @@ extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
     }
 }
 
-// MARK: - Cast & Crew collection delegate and data source
+// MARK: - Extension for UICollectionViewDelegate
 
 extension MovieDetailsViewController: UICollectionViewDelegate {
 
 }
+
+// MARK: - Extension for UICollectionViewDataSource
 
 extension MovieDetailsViewController: UICollectionViewDataSource {
     
@@ -170,4 +172,10 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
         
         return cell
     }
+}
+
+// MARK: - Extension for UICollectionViewDelegateFlowLayout
+
+extension MovieDetailsViewController: UICollectionViewDelegateFlowLayout {
+    
 }
