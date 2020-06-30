@@ -39,8 +39,6 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var informationTitle: UILabel!
     
-    @IBOutlet private var castCrewTitle: UILabel!
-    
     @IBOutlet private var duration: UILabel!
     
     @IBOutlet private var budget: UILabel!
@@ -49,9 +47,15 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var genres: UILabel!
     
+    @IBOutlet private var castCrewTitle: UILabel!
+    
+    @IBOutlet private var castCollection: UICollectionView!
+    
     // MARK: - Public properties
     
     var movie: Movie!
+    
+    var details: Details?
     
     // MARK: - View lifecycle
     
@@ -88,6 +92,9 @@ class MovieDetailsViewController: UIViewController {
         let scoreSorter = ScoreSorter()
         scoreView.score = movie.voteAverage
         scoreView.style = scoreSorter.style(forScore: movie.voteAverage)
+        
+        castCollection.delegate = self
+        castCollection.dataSource = self
         
         if let posterPath = movie.posterPath {
             posterImage.load(url: MovieAPI.build(image: posterPath, size: .w500))
@@ -126,6 +133,9 @@ class MovieDetailsViewController: UIViewController {
         budget.attributedText = attrBudget
         revenue.attributedText = attrRevenue
         duration.attributedText = attrDuration
+        
+        self.details = details
+        castCollection.reloadData()
     }
 }
 
@@ -135,5 +145,29 @@ extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
     
     func showMovieDetails(_ details: Details) {
         setupUI(details)
+    }
+}
+
+// MARK: - Cast & Crew collection delegate and data source
+
+extension MovieDetailsViewController: UICollectionViewDelegate {
+
+}
+
+extension MovieDetailsViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return details?.cast.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath)
+            as? CastCell else { return UICollectionViewCell() }
+        
+        if let cast = details?.cast[indexPath.item] {
+            cell.setup(cast: cast)
+        }
+        
+        return cell
     }
 }
