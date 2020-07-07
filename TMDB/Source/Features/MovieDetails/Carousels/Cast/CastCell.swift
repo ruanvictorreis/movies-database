@@ -7,12 +7,32 @@
 //
 
 import UIKit
+import Alamofire
 
 class CastCell: UICollectionViewCell {
     
-    @IBOutlet private var castName: UILabel!
+    //@IBOutlet private var castName: UILabel!
+    
+    @IBOutlet private var castImage: UIImageView!
+    
+    private var request: DataRequest?
+    
+    override func prepareForReuse() {
+        clearForReuse()
+    }
     
     func setup(cast: Cast) {
-        castName.text = cast.name
+        //castName.text = cast.name
+        
+        if let profile = cast.profilePath {
+            castImage.load(url: MovieAPI.build(image: profile, size: .w200)) { [weak self] request in
+                self?.request = request
+            }
+        }
+    }
+    
+    private func clearForReuse() {
+        castImage.image = nil
+        request?.cancel()
     }
 }
