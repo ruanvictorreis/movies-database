@@ -11,11 +11,21 @@ import Alamofire
 
 class CastCell: UICollectionViewCell {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet private var castName: UILabel!
     
     @IBOutlet private var castImage: UICircularImageView!
     
+    // MARK: - Public properties
+    
+    static var size = CGSize(width: 100.0, height: 150.0)
+    
+    // MARK: - Private properties
+    
     private var request: DataRequest?
+    
+    // MARK: - Public functions
     
     override func prepareForReuse() {
         clearForReuse()
@@ -30,6 +40,8 @@ class CastCell: UICollectionViewCell {
             }
         }
     }
+    
+    // MARK: - Private functions
     
     private func clearForReuse() {
         castImage.image = nil
