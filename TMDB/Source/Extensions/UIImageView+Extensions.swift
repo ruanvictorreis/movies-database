@@ -6,25 +6,20 @@
 //  Copyright © 2020 Ruan Reis. All rights reserved.
 //
 
-import Alamofire
+import UIKit
+import Kingfisher
 
 extension UIImageView {
     
-    func load(url: String, completation: ((DataRequest) -> Void)? = nil) {
-        let request = AF.request(url)
-        
-        request.response { response in
-            let statusCode = response.response?.statusCode
-            if  statusCode == 200, let data = response.data {
-                UIView.transition(
-                    with: self, duration: 0.75,
-                    options: .transitionCrossDissolve,
-                    animations: { [weak self] in
-                        self?.image = UIImage(data: data)
-                        completation?(request)
-                    }
-                )
-            }
+    func load(url: String, completion: (() -> Void)? = nil) {
+        kf.setImage(
+            with: URL(string: url),
+            options: [.transition(.fade(0.3))]) { _ in
+                completion?()
         }
+    }
+    
+    func cancel() {
+        kf.cancelDownloadTask()
     }
 }

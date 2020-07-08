@@ -19,11 +19,7 @@ class CastCell: UICollectionViewCell {
     
     // MARK: - Public properties
     
-    static var size = CGSize(width: 100.0, height: 150.0)
-    
-    // MARK: - Private properties
-    
-    private var request: DataRequest?
+    static var size = CGSize(width: 125.0, height: 175.0)
     
     // MARK: - Public functions
     
@@ -35,16 +31,14 @@ class CastCell: UICollectionViewCell {
         castName.text = cast.name
         
         if let profile = cast.profilePath {
-            castImage.load(url: MovieAPI.build(image: profile, size: .w200)) { [weak self] request in
-                self?.request = request
-            }
+            castImage.load(url: MovieAPI.build(image: profile, size: .w200))
         }
     }
     
     // MARK: - Private functions
     
     private func clearForReuse() {
+        castImage.cancel()
         castImage.image = nil
-        request?.cancel()
     }
 }
