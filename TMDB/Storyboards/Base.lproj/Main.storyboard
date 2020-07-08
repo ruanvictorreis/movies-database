@@ -229,20 +229,35 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="160"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B0O-eE-749">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="160"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B0O-eE-749" customClass="UICircularImageView" customModule="TMDB" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                            <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="B0O-eE-749" secondAttribute="height" multiplier="1:1" id="hyW-Zc-ezZ"/>
+                                                                                <constraint firstAttribute="height" constant="128" id="vsJ-Xb-rcN"/>
+                                                                            </constraints>
                                                                         </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyO-p6-FfI">
+                                                                            <rect key="frame" x="16" y="136" width="96" height="16"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="bottom" secondItem="B0O-eE-749" secondAttribute="bottom" id="2JH-ef-4X8"/>
                                                                         <constraint firstItem="B0O-eE-749" firstAttribute="leading" secondItem="Fud-NB-zyd" secondAttribute="leading" id="54m-Yd-u1b"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="UyO-p6-FfI" secondAttribute="bottom" constant="8" id="KkW-26-D6e"/>
                                                                         <constraint firstItem="B0O-eE-749" firstAttribute="top" secondItem="Fud-NB-zyd" secondAttribute="top" id="O4e-fC-nyQ"/>
+                                                                        <constraint firstItem="UyO-p6-FfI" firstAttribute="top" secondItem="B0O-eE-749" secondAttribute="bottom" constant="8" id="mMv-6Y-3Fh"/>
                                                                         <constraint firstAttribute="trailing" secondItem="B0O-eE-749" secondAttribute="trailing" id="srF-Ss-K7V"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="UyO-p6-FfI" secondAttribute="trailing" constant="16" id="wyN-Ds-5Sj"/>
+                                                                        <constraint firstItem="UyO-p6-FfI" firstAttribute="leading" secondItem="Fud-NB-zyd" secondAttribute="leading" constant="16" id="yg4-jv-bWf"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
                                                                 <size key="customSize" width="128" height="160"/>
                                                                 <connections>
-                                                                    <outlet property="castImage" destination="B0O-eE-749" id="aVw-Zk-tSx"/>
+                                                                    <outlet property="castImage" destination="B0O-eE-749" id="unu-aj-pMZ"/>
+                                                                    <outlet property="castName" destination="UyO-p6-FfI" id="evW-Th-mZd"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>

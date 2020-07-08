@@ -11,9 +11,9 @@ import Alamofire
 
 class CastCell: UICollectionViewCell {
     
-    //@IBOutlet private var castName: UILabel!
+    @IBOutlet private var castName: UILabel!
     
-    @IBOutlet private var castImage: UIImageView!
+    @IBOutlet private var castImage: UICircularImageView!
     
     private var request: DataRequest?
     
@@ -22,7 +22,7 @@ class CastCell: UICollectionViewCell {
     }
     
     func setup(cast: Cast) {
-        //castName.text = cast.name
+        castName.text = cast.name
         
         if let profile = cast.profilePath {
             castImage.load(url: MovieAPI.build(image: profile, size: .w200)) { [weak self] request in
