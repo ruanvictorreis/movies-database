@@ -15,11 +15,13 @@ class CastCell: UICollectionViewCell {
     
     @IBOutlet private var castName: UILabel!
     
+    @IBOutlet private var character: UILabel!
+    
     @IBOutlet private var castImage: UICircularImageView!
     
     // MARK: - Public properties
     
-    static var size = CGSize(width: 125.0, height: 175.0)
+    static var size = CGSize(width: 125.0, height: 188.0)
     
     // MARK: - Public functions
     
@@ -29,6 +31,7 @@ class CastCell: UICollectionViewCell {
     
     func setup(cast: Cast) {
         castName.text = cast.name
+        character.text = cast.character
         
         if let profile = cast.profilePath {
             castImage.load(url: MovieAPI.build(image: profile, size: .w200))
@@ -40,5 +43,7 @@ class CastCell: UICollectionViewCell {
     private func clearForReuse() {
         castImage.cancel()
         castImage.image = nil
+        castName.text = nil
+        character.text = nil
     }
 }

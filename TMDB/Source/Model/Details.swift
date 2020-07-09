@@ -21,12 +21,16 @@ struct Details {
     let cast: [Cast]
     
     init(_ response: MovieDetailsResponse) {
-        self.cast = response.credits.cast
         self.budget = response.budget.currencyFormat ?? ""
         self.revenue = response.revenue.currencyFormat ?? ""
         self.duration = response.runtime.durationFormat ?? ""
         
-        self.genres = response.genres.prefix(3)
+        self.cast = Array(response
+            .credits.cast
+            .prefix(5))
+        
+        self.genres = response.genres
+            .prefix(3)
             .map({ $0.name })
             .joined(separator: ", ")
     }

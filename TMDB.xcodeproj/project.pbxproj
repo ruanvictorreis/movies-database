@@ -36,6 +36,7 @@
 		158DFB3C249B11CE005B6AAD /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB3B249B11CE005B6AAD /* Genre.swift */; };
 		158DFB3E249B19EB005B6AAD /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB3D249B19EB005B6AAD /* Video.swift */; };
 		158DFB40249B1A62005B6AAD /* MovieTrailerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158DFB3F249B1A62005B6AAD /* MovieTrailerResponse.swift */; };
+		15B1EA1C24B68E210054A1B5 /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1EA1B24B68E210054A1B5 /* Crew.swift */; };
 		15B8483824AAB490007F384A /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8483724AAB490007F384A /* CastCell.swift */; };
 		15B8483A24AAB7CC007F384A /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8483924AAB7CC007F384A /* Credits.swift */; };
 		15B8483C24AAB811007F384A /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8483B24AAB811007F384A /* Cast.swift */; };
@@ -106,6 +107,7 @@
 		158DFB3B249B11CE005B6AAD /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		158DFB3D249B19EB005B6AAD /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		158DFB3F249B1A62005B6AAD /* MovieTrailerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrailerResponse.swift; sourceTree = "<group>"; };
+		15B1EA1B24B68E210054A1B5 /* Crew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crew.swift; sourceTree = "<group>"; };
 		15B8483724AAB490007F384A /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 		15B8483924AAB7CC007F384A /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		15B8483B24AAB811007F384A /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				15B8483B24AAB811007F384A /* Cast.swift */,
 				15B8483924AAB7CC007F384A /* Credits.swift */,
+				15B1EA1B24B68E210054A1B5 /* Crew.swift */,
 				156150B6249C416C0044090E /* Details.swift */,
 				158DFB3B249B11CE005B6AAD /* Genre.swift */,
 				157D53E8246106FB00CA72F9 /* Movie.swift */,
@@ -694,6 +697,7 @@
 				156150B9249C445C0044090E /* Int+Extension.swift in Sources */,
 				15E2D34F2472F4AA001055FA /* SnakeCaseDecoder.swift in Sources */,
 				158795AB248C7A21002B796C /* ScoreSorter.swift in Sources */,
+				15B1EA1C24B68E210054A1B5 /* Crew.swift in Sources */,
 				153A626C24789276009D42B6 /* UIColor+Extensions.swift in Sources */,
 				156273372474BB6400656B5E /* MovieListInteractor.swift in Sources */,
 				15E588692441421100E8576F /* AppDelegate.swift in Sources */,
