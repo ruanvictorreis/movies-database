@@ -21,7 +21,7 @@ class CastCell: UICollectionViewCell {
     
     // MARK: - Public properties
     
-    static var size = CGSize(width: 125.0, height: 188.0)
+    static var size = CGSize(width: 125.0, height: 200)
     
     // MARK: - Public functions
     
