@@ -47,9 +47,7 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var genres: UILabel!
     
-    @IBOutlet private var castCrewTitle: UILabel!
-    
-    @IBOutlet private var castCollection: UICollectionView!
+    @IBOutlet private var castCarouselView: CastCarouselView!
     
     // MARK: - Public properties
     
@@ -82,7 +80,6 @@ class MovieDetailsViewController: UIViewController {
         revenue.text = R.Localizable.revenue()
         duration.text = R.Localizable.duration()
         overviewTitle.text = R.Localizable.overview()
-        castCrewTitle.text = R.Localizable.castCrew()
         informationTitle.text = R.Localizable.informations()
         
         movieTitle.text = movie.title
@@ -92,9 +89,6 @@ class MovieDetailsViewController: UIViewController {
         let scoreSorter = ScoreSorter()
         scoreView.score = movie.voteAverage
         scoreView.style = scoreSorter.style(forScore: movie.voteAverage)
-        
-        castCollection.delegate = self
-        castCollection.dataSource = self
         
         if let posterPath = movie.posterPath {
             posterImage.load(url: MovieAPI.build(image: posterPath, size: .w500))
@@ -135,7 +129,7 @@ class MovieDetailsViewController: UIViewController {
         duration.attributedText = attrDuration
         
         self.details = details
-        castCollection.reloadData()
+        castCarouselView.setupUI(details)
     }
 }
 
@@ -146,41 +140,4 @@ extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
     func showMovieDetails(_ details: Details) {
         setupUI(details)
     }
-}
-
-// MARK: - Extension for UICollectionViewDelegate
-
-extension MovieDetailsViewController: UICollectionViewDelegate {
-
-}
-
-// MARK: - Extension for UICollectionViewDataSource
-
-extension MovieDetailsViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return details?.cast.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath)
-            as? CastCell else { return UICollectionViewCell() }
-        
-        if let cast = details?.cast[indexPath.item] {
-            cell.setup(cast: cast)
-        }
-        
-        return cell
-    }
-}
-
-// MARK: - Extension for UICollectionViewDelegateFlowLayout
-
-extension MovieDetailsViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CastCell.size
-    }
-    
 }

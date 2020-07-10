@@ -203,7 +203,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chA-Cn-5Ni">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chA-Cn-5Ni" customClass="CastCarouselView" customModule="TMDB" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="627" width="414" height="228"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast &amp; Crew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGl-XK-Kun">
@@ -237,7 +237,7 @@
                                                                                     <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="B0O-eE-749" secondAttribute="height" multiplier="1:1" id="hyW-Zc-ezZ"/>
-                                                                                        <constraint firstAttribute="height" constant="125" id="vsJ-Xb-rcN"/>
+                                                                                        <constraint firstAttribute="height" constant="100" id="vsJ-Xb-rcN"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyO-p6-FfI">
@@ -286,6 +286,10 @@
                                                             <constraint firstItem="dGl-XK-Kun" firstAttribute="top" secondItem="chA-Cn-5Ni" secondAttribute="top" id="wXP-Ag-Dxt"/>
                                                             <constraint firstAttribute="bottom" secondItem="cPc-3P-RAL" secondAttribute="bottom" id="xxW-Y6-3Au"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outlet property="castCollection" destination="cPc-3P-RAL" id="WK6-0t-U4z"/>
+                                                            <outlet property="castCrewTitle" destination="dGl-XK-Kun" id="d91-LS-ycH"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -370,8 +374,7 @@
                     <connections>
                         <outlet property="backdropImage" destination="5aV-gc-mYR" id="r1Z-wJ-TME"/>
                         <outlet property="budget" destination="0Lx-zK-c0E" id="gpP-I1-ddT"/>
-                        <outlet property="castCollection" destination="cPc-3P-RAL" id="7UI-Pq-lKv"/>
-                        <outlet property="castCrewTitle" destination="dGl-XK-Kun" id="eE8-cy-3dL"/>
+                        <outlet property="castCarouselView" destination="chA-Cn-5Ni" id="6z8-92-0ip"/>
                         <outlet property="duration" destination="XI8-Kg-ny8" id="SkI-XS-Wl5"/>
                         <outlet property="genres" destination="QsG-su-RfX" id="XcK-6t-Beh"/>
                         <outlet property="informationTitle" destination="jAg-rm-Rmg" id="a3D-dI-WyD"/>
