@@ -12,4 +12,6 @@ struct Credits: Decodable {
     
     let cast: [Cast]
     
+    let crew: [Crew]
+    
 }

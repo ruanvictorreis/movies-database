@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +12,11 @@
             <objects>
                 <viewController storyboardIdentifier="MovieListViewController" id="BYZ-38-t0r" customClass="MovieListViewController" customModule="TMDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-ge-DaW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nhZ-bV-AVb">
                                     <size key="itemSize" width="160" height="296"/>
@@ -97,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0z-cz-Km7">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1422"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IrR-Gc-D9Y" userLabel="Scroll Content">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
@@ -203,7 +202,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chA-Cn-5Ni" customClass="CastCarouselView" customModule="TMDB" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chA-Cn-5Ni" customClass="CastCrewCarouselView" customModule="TMDB" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="626" width="414" height="240"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast &amp; Crew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGl-XK-Kun">
@@ -225,7 +224,7 @@
                                                                     <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CastCell" id="eH3-pM-zCs" customClass="CastCell" customModule="TMDB" customModuleProvider="target">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CastCell" id="eH3-pM-zCs" customClass="CastCrewCell" customModule="TMDB" customModuleProvider="target">
                                                                         <rect key="frame" x="16" y="0.0" width="125" height="200"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Fud-NB-zyd">
@@ -267,9 +266,9 @@
                                                                         </collectionViewCellContentView>
                                                                         <size key="customSize" width="125" height="200"/>
                                                                         <connections>
-                                                                            <outlet property="castImage" destination="B0O-eE-749" id="unu-aj-pMZ"/>
-                                                                            <outlet property="castName" destination="UyO-p6-FfI" id="evW-Th-mZd"/>
-                                                                            <outlet property="character" destination="7pA-tb-rHx" id="zV7-EL-Tmk"/>
+                                                                            <outlet property="image" destination="B0O-eE-749" id="unu-aj-pMZ"/>
+                                                                            <outlet property="subtitle" destination="7pA-tb-rHx" id="zV7-EL-Tmk"/>
+                                                                            <outlet property="title" destination="UyO-p6-FfI" id="evW-Th-mZd"/>
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
@@ -286,7 +285,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="cPc-3P-RAL" secondAttribute="bottom" id="xxW-Y6-3Au"/>
                                                         </constraints>
                                                         <connections>
-                                                            <outlet property="castCollection" destination="cPc-3P-RAL" id="WK6-0t-U4z"/>
+                                                            <outlet property="castCrewCollection" destination="cPc-3P-RAL" id="WK6-0t-U4z"/>
                                                             <outlet property="castCrewTitle" destination="dGl-XK-Kun" id="d91-LS-ycH"/>
                                                         </connections>
                                                     </view>

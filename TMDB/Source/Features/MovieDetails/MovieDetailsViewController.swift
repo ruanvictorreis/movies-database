@@ -47,7 +47,7 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var genres: UILabel!
     
-    @IBOutlet private var castCarouselView: CastCarouselView!
+    @IBOutlet private var castCarouselView: CastCrewCarouselView!
     
     // MARK: - Public properties
     

@@ -117,7 +117,7 @@ struct R: Rswift.Validatable {
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `CastCell`.
-    static let castCell: Rswift.ReuseIdentifier<CastCell> = Rswift.ReuseIdentifier(identifier: "CastCell")
+    static let castCell: Rswift.ReuseIdentifier<CastCrewCell> = Rswift.ReuseIdentifier(identifier: "CastCell")
     /// Reuse identifier `movieCell`.
     static let movieCell: Rswift.ReuseIdentifier<MovieCollectionViewCell> = Rswift.ReuseIdentifier(identifier: "movieCell")
 

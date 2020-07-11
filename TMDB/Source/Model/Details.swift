@@ -20,6 +20,8 @@ struct Details {
     
     let cast: [Cast]
     
+    let crew: [Crew]
+    
     init(_ response: MovieDetailsResponse) {
         self.budget = response.budget.currencyFormat ?? ""
         self.revenue = response.revenue.currencyFormat ?? ""
@@ -27,6 +29,10 @@ struct Details {
         
         self.cast = Array(response
             .credits.cast
+            .prefix(5))
+        
+        self.crew = Array(response
+            .credits.crew
             .prefix(5))
         
         self.genres = response.genres
