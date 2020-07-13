@@ -21,7 +21,7 @@ class CastCrewCell: UICollectionViewCell {
     
     // MARK: - Public properties
     
-    static var size = CGSize(width: 125.0, height: 200)
+    static var size = CGSize(width: 125.0, height: 192)
     
     // MARK: - Public functions
     

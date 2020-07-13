@@ -58,6 +58,8 @@
 		15E588802441421200E8576F /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E5887F2441421200E8576F /* TMDBTests.swift */; };
 		15E588942441501500E8576F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E588932441501500E8576F /* R.generated.swift */; };
 		15EEEC5324BA535F00D422EC /* CastCrewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEEC5224BA535F00D422EC /* CastCrewDataSource.swift */; };
+		15EEEC5624BBFFF300D422EC /* RecommendationCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEEC5524BBFFF300D422EC /* RecommendationCarouselView.swift */; };
+		15EEEC5824BC002D00D422EC /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEEC5724BC002D00D422EC /* RecommendationCell.swift */; };
 		15F23BB52489DE4D00876772 /* UIScoreViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F23BB42489DE4D00876772 /* UIScoreViewStyle.swift */; };
 		15F23BB72489DFEB00876772 /* Green.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F23BB62489DFEB00876772 /* Green.swift */; };
 		15F23BBA2489E0C800876772 /* Yellow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F23BB92489E0C800876772 /* Yellow.swift */; };
@@ -136,6 +138,8 @@
 		15E588812441421200E8576F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E588932441501500E8576F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		15EEEC5224BA535F00D422EC /* CastCrewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewDataSource.swift; sourceTree = "<group>"; };
+		15EEEC5524BBFFF300D422EC /* RecommendationCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCarouselView.swift; sourceTree = "<group>"; };
+		15EEEC5724BC002D00D422EC /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
 		15F23BB42489DE4D00876772 /* UIScoreViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScoreViewStyle.swift; sourceTree = "<group>"; };
 		15F23BB62489DFEB00876772 /* Green.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Green.swift; sourceTree = "<group>"; };
 		15F23BB92489E0C800876772 /* Yellow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yellow.swift; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				15B8483624AAB455007F384A /* CastCrew */,
+				15EEEC5424BBFFB200D422EC /* Recommendation */,
 			);
 			path = Carousels;
 			sourceTree = "<group>";
@@ -434,6 +439,15 @@
 				15E5886E2441421100E8576F /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		15EEEC5424BBFFB200D422EC /* Recommendation */ = {
+			isa = PBXGroup;
+			children = (
+				15EEEC5724BC002D00D422EC /* RecommendationCell.swift */,
+				15EEEC5524BBFFF300D422EC /* RecommendationCarouselView.swift */,
+			);
+			path = Recommendation;
 			sourceTree = "<group>";
 		};
 		15F23BB32489DA4100876772 /* UIScoreView */ = {
@@ -712,11 +726,13 @@
 				15C58EEB247F458000E5958D /* MovieDetailsViewController.swift in Sources */,
 				153A62682477455C009D42B6 /* Section.swift in Sources */,
 				156273392474BC3500656B5E /* MovieListPresenter.swift in Sources */,
+				15EEEC5624BBFFF300D422EC /* RecommendationCarouselView.swift in Sources */,
 				157D53E42460FBE600CA72F9 /* Network.swift in Sources */,
 				15F23BBE2489F17C00876772 /* Default.swift in Sources */,
 				15F23BB52489DE4D00876772 /* UIScoreViewStyle.swift in Sources */,
 				157D53DF2460F3E100CA72F9 /* MovieListWorker.swift in Sources */,
 				15F23BBA2489E0C800876772 /* Yellow.swift in Sources */,
+				15EEEC5824BC002D00D422EC /* RecommendationCell.swift in Sources */,
 				156150BE249C50170044090E /* Double+Extensions.swift in Sources */,
 				15B8483A24AAB7CC007F384A /* Credits.swift in Sources */,
 				158DFB3E249B19EB005B6AAD /* Video.swift in Sources */,

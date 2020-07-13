@@ -10,11 +10,17 @@ import UIKit
 
 class CastCrewCarouselView: UIView {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet private var castCrewTitle: UILabel!
     
     @IBOutlet private var castCrewCollection: UICollectionView!
     
+    // MARK: - Private properties
+    
     private var castCrewList: [CastCrewDataSource] = []
+    
+    // MARK: - Public functions
     
     func setupUI(_ details: Details?) {
         castCrewTitle.text = R.Localizable.castCrew()
@@ -37,16 +43,9 @@ class CastCrewCarouselView: UIView {
                     profilePath: $0.profilePath)
             }))
         
-        castCrewCollection.delegate = self
         castCrewCollection.dataSource = self
         castCrewCollection.reloadData()
     }
-}
-
-// MARK: - Extension for UICollectionViewDelegate
-
-extension CastCrewCarouselView: UICollectionViewDelegate {
-    
 }
 
 // MARK: - Extension for UICollectionViewDataSource
@@ -60,7 +59,7 @@ extension CastCrewCarouselView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath)
             as? CastCrewCell else { return UICollectionViewCell() }
-
+        
         cell.setup(castCrewList[indexPath.item])
         
         return cell

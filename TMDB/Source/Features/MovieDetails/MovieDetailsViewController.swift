@@ -47,7 +47,9 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet private var genres: UILabel!
     
-    @IBOutlet private var castCarouselView: CastCrewCarouselView!
+    @IBOutlet private var castCrewCarouselView: CastCrewCarouselView!
+    
+    @IBOutlet private var recommendationCarouselView: RecommendationCarouselView!
     
     // MARK: - Public properties
     
@@ -129,7 +131,8 @@ class MovieDetailsViewController: UIViewController {
         duration.attributedText = attrDuration
         
         self.details = details
-        castCarouselView.setupUI(details)
+        castCrewCarouselView.setupUI(details)
+        recommendationCarouselView.setupUI(details)
     }
 }
 
