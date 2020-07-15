@@ -322,15 +322,27 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="250" height="170"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-jI-8KI">
+                                                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bti-PT-PbK" customClass="UICardView" customModule="TMDB" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="170"/>
-                                                                                </imageView>
+                                                                                    <subviews>
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-jI-8KI">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="170"/>
+                                                                                        </imageView>
+                                                                                    </subviews>
+                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="bottom" secondItem="J5D-jI-8KI" secondAttribute="bottom" id="CTH-kz-nGC"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="J5D-jI-8KI" secondAttribute="trailing" id="DxN-uo-uDR"/>
+                                                                                        <constraint firstItem="J5D-jI-8KI" firstAttribute="top" secondItem="Bti-PT-PbK" secondAttribute="top" id="YkC-0H-dB5"/>
+                                                                                        <constraint firstItem="J5D-jI-8KI" firstAttribute="leading" secondItem="Bti-PT-PbK" secondAttribute="leading" id="iw0-dr-cGE"/>
+                                                                                    </constraints>
+                                                                                </view>
                                                                             </subviews>
                                                                             <constraints>
-                                                                                <constraint firstItem="J5D-jI-8KI" firstAttribute="top" secondItem="46l-8U-MiU" secondAttribute="top" id="9ea-ZY-gXO"/>
-                                                                                <constraint firstItem="J5D-jI-8KI" firstAttribute="leading" secondItem="46l-8U-MiU" secondAttribute="leading" id="EYy-R4-1b4"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="J5D-jI-8KI" secondAttribute="trailing" id="I3n-A9-PQu"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="J5D-jI-8KI" secondAttribute="bottom" id="SbQ-lb-Pk7"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="Bti-PT-PbK" secondAttribute="trailing" id="Q6h-5u-lHK"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="Bti-PT-PbK" secondAttribute="bottom" id="Vgc-Kd-Tth"/>
+                                                                                <constraint firstItem="Bti-PT-PbK" firstAttribute="leading" secondItem="46l-8U-MiU" secondAttribute="leading" id="pO6-9Y-613"/>
+                                                                                <constraint firstItem="Bti-PT-PbK" firstAttribute="top" secondItem="46l-8U-MiU" secondAttribute="top" id="rof-9z-Veq"/>
                                                                             </constraints>
                                                                         </collectionViewCellContentView>
                                                                         <size key="customSize" width="250" height="170"/>
