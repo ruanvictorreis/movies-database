@@ -43,6 +43,7 @@ class CastCrewCarouselView: UIView {
                     profilePath: $0.profilePath)
             }))
         
+        castCrewCollection.delegate = self
         castCrewCollection.dataSource = self
         castCrewCollection.reloadData()
     }
@@ -57,7 +58,9 @@ extension CastCrewCarouselView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath)
+        let identifier = "CastCrewCell"
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
             as? CastCrewCell else { return UICollectionViewCell() }
         
         cell.setup(castCrewList[indexPath.item])

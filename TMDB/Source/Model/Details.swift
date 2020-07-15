@@ -22,6 +22,8 @@ struct Details {
     
     let crew: [Crew]
     
+    let recommendations: [Movie]
+    
     init(_ response: MovieDetailsResponse) {
         self.budget = response.budget.currencyFormat ?? ""
         self.revenue = response.revenue.currencyFormat ?? ""
@@ -39,5 +41,7 @@ struct Details {
             .prefix(3)
             .map({ $0.name })
             .joined(separator: ", ")
+        
+        self.recommendations = response.recommendations.results
     }
 }

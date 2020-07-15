@@ -17,7 +17,7 @@ class CastCrewCell: UICollectionViewCell {
     
     @IBOutlet private var subtitle: UILabel!
     
-    @IBOutlet private var image: UICircularImageView!
+    @IBOutlet private var castCrewImage: UICircularImageView!
     
     // MARK: - Public properties
     
@@ -34,16 +34,16 @@ class CastCrewCell: UICollectionViewCell {
         subtitle.text = dataSource.subtitle
         
         if let profile = dataSource.profilePath {
-            image.load(url: MovieAPI.build(image: profile, size: .w200))
+            castCrewImage.load(url: MovieAPI.build(image: profile, size: .w200))
         }
     }
     
     // MARK: - Private functions
     
     private func clearForReuse() {
-        image.cancel()
-        image.image = nil
         title.text = nil
         subtitle.text = nil
+        castCrewImage.cancel()
+        castCrewImage.image = nil
     }
 }
