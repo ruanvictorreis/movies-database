@@ -1,9 +1,9 @@
 language: swift
 osx_image: xcode11.6
 xcode_workspace: TMDB.xcworkspace
-xcode_scheme: TMDB
-xcode_sdk: iphonesimulator13.2
-xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+xcode_sdk: iphonesimulator13.6
+env:
+ - DESTINATION="platform=iOS Simulator,name=iPhone 11,OS=13.6" SCHEME="TMDB"
 
 branches:
   only:
@@ -14,4 +14,4 @@ before_install:
 - pod install
 
 script:
-- xcodebuild -workspace YouMovie.xcworkspace -scheme "$SCHEME" -destination "$DESTINATION" clean test | xcpretty
+- xcodebuild -workspace TMDB.xcworkspace -scheme "$SCHEME" -derivedDataPath BUILDPATH -destination "$DESTINATION" -enableCodeCoverage YES clean test
