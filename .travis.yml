@@ -14,4 +14,4 @@ before_install:
 - pod install
 
 script:
-- xcodebuild -workspace TMDB.xcworkspace -scheme "$SCHEME" -derivedDataPath BUILDPATH -destination "$DESTINATION" -enableCodeCoverage YES clean build test
+- xcodebuild -workspace TMDB.xcworkspace -scheme "$SCHEME" -derivedDataPath BUILDPATH -destination "$DESTINATION" -enableCodeCoverage YES clean test
