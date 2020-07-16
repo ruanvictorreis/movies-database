@@ -17,40 +17,72 @@ protocol MovieListViewControllerProtocol {
 
 class MovieListViewController: UIViewController {
     
+    // MARK: - VIP properties
+    
     var interactor: MovieListInteractorProtocol!
     
     var router: MovieListRouterProtocol!
     
-    private var moviesList = [Movie]()
+    // MARK: - IBOutlets
     
     @IBOutlet private var collectionView: UICollectionView!
     
+    // MARK: - Private properties
+    
+    private var moviesList = [Movie]()
+    
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCycle()
         setupCollectionView()
         fetchMovieList()
     }
     
-    func setupCycle() {
-        MovieListBuilder().build(self)
-    }
+    // MARK: - Private functions
     
-    func setupCollectionView() {
+    private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    func fetchMovieList() {
+    private func fetchMovieList() {
         showLoading()
         interactor.fetchMovieList()
     }
     
-    func fetchNextPage() {
+    private func fetchNextPage() {
         showLoading()
         interactor.fetchNextPage()
     }
 }
+
+// MARK: - Protocol requirements extension
+
+extension MovieListViewController: MovieListViewControllerProtocol {
+    
+    func showMoviesList(_ movies: [Movie]) {
+        var indexPaths: [IndexPath] = []
+        
+        for index in movies.indices {
+            indexPaths.append(IndexPath(item: index + (moviesList.count), section: 0))
+        }
+        
+        moviesList.append(contentsOf: movies)
+        
+        self.collectionView.performBatchUpdates({
+            self.collectionView.insertItems(at: indexPaths)
+        })
+        
+        hideLoading()
+    }
+    
+    func showMovieListError(errorMessage: String) {
+        showMessage(title: R.Localizable.errorTitle(), message: errorMessage)
+    }
+}
+
+// MARK: - Extension for UICollectionViewDatasource
 
 extension MovieListViewController: UICollectionViewDataSource {
     
@@ -64,15 +96,15 @@ extension MovieListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath)
-            as? MovieCollectionViewCell else {
-                return UICollectionViewCell()
-        }
+            as? MovieCollectionViewCell else { return UICollectionViewCell() }
         
         cell.setup(movie: moviesList[indexPath.item])
         
         return cell
     }
 }
+
+// MARK: - Extension for UICollectionViewDelegate
 
 extension MovieListViewController: UICollectionViewDelegate {
     
@@ -93,11 +125,16 @@ extension MovieListViewController: UICollectionViewDelegate {
             cell.transform = .identity
         })
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router.proceedToMovieDetails(movie: moviesList[indexPath.item])
+    }
 }
+
+// MARK: - Extension for UICollectionViewDelegateFlowLayout
 
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     
-    // MARK: - Private Properties
     private var margin: CGFloat {
         return 16.0
     }
@@ -106,7 +143,6 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
     
-    // MARK: - Internal Methods
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return insetForSections
@@ -129,28 +165,5 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
         let ratio: CGFloat = 1.85
         let height = width * ratio
         return CGSize(width: width, height: height)
-    }
-}
-
-extension MovieListViewController: MovieListViewControllerProtocol {
-    
-    func showMoviesList(_ movies: [Movie]) {
-        var indexPaths: [IndexPath] = []
-        
-        for index in movies.indices {
-            indexPaths.append(IndexPath(item: index + (moviesList.count), section: 0))
-        }
-        
-        moviesList.append(contentsOf: movies)
-        
-        self.collectionView.performBatchUpdates({
-            self.collectionView.insertItems(at: indexPaths)
-        })
-        
-        hideLoading()
-    }
-    
-    func showMovieListError(errorMessage: String) {
-        showAlert(title: R.Localizable.errorTitle(), message: errorMessage)
     }
 }

@@ -25,15 +25,13 @@ class MovieCollectionViewCell: UICollectionViewCell {
         movieTitle.text = movie.title
         
         if let poster = movie.posterPath {
-            movieImage.load(url: MovieAPI.build(image: poster, size: .w500)) { [weak self] request in
-                self?.request = request
-            }
+            movieImage.load(url: MovieAPI.build(image: poster, size: .w500))
         }
     }
     
     private func clearForReuse() {
-        movieTitle.text = nil
+        movieImage.cancel()
         movieImage.image = nil
-        request?.cancel()
+        movieTitle.text = nil
     }
 }

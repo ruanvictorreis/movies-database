@@ -16,6 +16,8 @@ struct Movie: Decodable {
 
     let overview: String
     
+    let releaseDate: String
+    
     let popularity: Double
     
     let voteCount: Int
@@ -26,4 +28,9 @@ struct Movie: Decodable {
     
     let backdropPath: String?
     
+    var relaseDateFormatted: String? {
+        releaseDate
+            .asDate(format: "yyyy-MM-dd")?
+            .stringFormat
+    }
 }

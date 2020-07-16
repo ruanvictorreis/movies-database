@@ -38,4 +38,8 @@ struct MovieAPI {
             + "?api_key=\(MovieAPI.key)&language=\(language)&page=\(page)"
     }
     
+    static func build(detailsOf id: Int) -> String {
+        return "\(MovieAPI.baseURL)/movie/\(id)?api_key=\(MovieAPI.key)"
+            + "&language=\(language)&append_to_response=videos,credits,recommendations"
+    }
 }

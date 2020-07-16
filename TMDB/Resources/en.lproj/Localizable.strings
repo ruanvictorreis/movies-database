@@ -8,6 +8,22 @@
 
 "language" = "en";
 
+"overview" = "Overview";
+
+"informations" = "Informations";
+
+"castCrew" = "Cast & Crew";
+
+"recommendations" = "Recommendations";
+
+"duration" = "Duration: ";
+
+"budget" = "Budget: ";
+
+"revenue" = "Revenue: ";
+
+"genres" = "Genres: ";
+
 "errorTitle" = "Oops, an error has occurred!";
 
 "errorDescription" = "Sorry, something went wrong. Try again later.";
