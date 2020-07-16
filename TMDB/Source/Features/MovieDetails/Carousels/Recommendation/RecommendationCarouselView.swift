@@ -57,8 +57,7 @@ extension RecommendationCarouselView: UICollectionViewDataSource {
 
 extension RecommendationCarouselView: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return RecommendationCell.size
     }
 }
