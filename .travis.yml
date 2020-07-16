@@ -1,7 +1,6 @@
 language: swift
 osx_image: xcode11.6
 xcode_workspace: TMDB.xcworkspace
-xcode_scheme: TMDBTests
 xcode_sdk: iphonesimulator13.2
 xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
 
@@ -14,4 +13,4 @@ before_install:
 - pod install
 
 script:
-- xcodebuild -workspace YouMovie.xcworkspace -scheme "$SCHEME" -destination "$DESTINATION" clean test | xcpretty
+- xcodebuild -workspace TMDB.xcworkspace -scheme "$SCHEME" -destination "$DESTINATION" clean test | xcpretty
