@@ -11,6 +11,8 @@ import UIKit
 protocol MovieDetailsViewControllerProtocol: AnyObject {
     
     func showMovieDetails(_ details: Details)
+    
+    func showRecommendationDetails(_ movie: Movie)
 }
 
 class MovieDetailsViewController: UIViewController {
@@ -131,8 +133,9 @@ class MovieDetailsViewController: UIViewController {
         duration.attributedText = attrDuration
         
         self.details = details
-        castCrewCarouselView.setupUI(details)
+        recommendationCarouselView.delegate = self
         recommendationCarouselView.setupUI(details)
+        castCrewCarouselView.setupUI(details)
     }
 }
 
@@ -142,5 +145,9 @@ extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
     
     func showMovieDetails(_ details: Details) {
         setupUI(details)
+    }
+    
+    func showRecommendationDetails(_ movie: Movie) {
+        router.proceedToMovieDetails(movie: movie)
     }
 }

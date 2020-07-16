@@ -9,7 +9,8 @@
 import Foundation
 
 protocol MovieDetailRouterProtocol {
-
+    
+    func proceedToMovieDetails(movie: Movie)
 }
 
 class MovieDetailsRouter: MovieDetailRouterProtocol {
@@ -18,4 +19,13 @@ class MovieDetailsRouter: MovieDetailRouterProtocol {
     
     weak var viewController: MovieDetailsViewController!
     
+    // MARK: - Public functions
+    
+    func proceedToMovieDetails(movie: Movie) {
+        guard let nextScene = MovieDetailsBuider().build(movie: movie)
+            else { return }
+        
+        viewController.navigationController?
+            .pushViewController(nextScene, animated: true)
+    }
 }

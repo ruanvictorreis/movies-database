@@ -17,7 +17,12 @@ class RecommendationCarouselView: UIView {
     @IBOutlet private var recommendationCollection: UICollectionView!
     
     // MARK: - Private properties
+    
     private var recommendationList: [Movie] = []
+    
+    // MARK: - Public properties
+    
+    weak var delegate: MovieDetailsViewControllerProtocol?
     
     // MARK: - Public functions
     
@@ -50,6 +55,15 @@ extension RecommendationCarouselView: UICollectionViewDataSource {
         cell.setup(recommendationList[indexPath.item])
         
         return cell
+    }
+}
+
+// MARK: - Extension for UICollectionViewDelegate
+
+extension RecommendationCarouselView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.showRecommendationDetails(recommendationList[indexPath.item])
     }
 }
 
