@@ -1,7 +1,9 @@
 language: swift
 osx_image: xcode11.2
 xcode_workspace: TMDB.xcworkspace
-xcode_sdk: iphonesimulator13.
+xcode_sdk: iphonesimulator13.2
+env:
+ - DESTINATION="platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.2.2" SCHEME="TMDB"
 
 branches:
   only:
@@ -9,7 +11,12 @@ branches:
   - /^release-.*$/
 
 before_install:
-- pod install
+- rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/TMDB-*/
+- rvm use $RVM_RUBY_VERSION
+- brew update
+- brew upgrade swiftlint
+- pod repo update
+
 
 script:
-- xcodebuild -workspace TMDB.xcworkspace -scheme TMDB -sdk iphonesimulator13.2 -configuration Debug build test
+- xcodebuild -workspace TMDB.xcworkspace -scheme "$SCHEME" -destination "$DESTINATION" clean test | xcpretty
