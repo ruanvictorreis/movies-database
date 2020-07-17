@@ -14,7 +14,7 @@ before_install:
 - pod install
 
 install:
-  - ./install_swiftlint.sh
+  - ./Scripts/install_swiftlint.sh
 
 script:
   - swiftlint
