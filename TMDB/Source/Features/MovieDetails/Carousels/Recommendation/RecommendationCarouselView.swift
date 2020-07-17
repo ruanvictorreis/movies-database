@@ -22,7 +22,7 @@ class RecommendationCarouselView: UIView {
     
     // MARK: - Public properties
     
-    weak var delegate: MovieDetailsViewControllerProtocol?
+    weak var delegate: MovieDetailsViewControllerProtocol? = nil
     
     // MARK: - Public functions
     
