@@ -31,7 +31,7 @@ class MovieListPresenter: MovieListPresenterProtocol {
             return
         }
         
-        viewController.showMoviesList(moviesList)
+        viewController.showMovieList(moviesList)
     }
     
     func showMovieListError(_ error: AFError?) {

@@ -13,17 +13,18 @@ typealias MovieListError = (_ error: AFError?) -> Void
 
 protocol MovieListWorkerProtocol {
     
-    func fetchMovieList(section: Section,
-                        sucess: @escaping MovieListSuccess,
-                        failure: @escaping MovieListError)
+    var currentPage: Int { get }
     
     func nextPage()
     
+    func fetchMovieList(section: Section,
+                        sucess: @escaping MovieListSuccess,
+                        failure: @escaping MovieListError)
 }
 
 class MovieListWorker: MovieListWorkerProtocol {
 
-    private var currentPage = 1
+    var currentPage = 1
     
     func fetchMovieList(section: Section,
                         sucess: @escaping MovieListSuccess,

@@ -10,7 +10,7 @@ import UIKit
 
 protocol MovieListViewControllerProtocol {
     
-    func showMoviesList(_ movies: [Movie])
+    func showMovieList(_ movies: [Movie])
     
     func showMovieListError(errorMessage: String)
 }
@@ -61,7 +61,7 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: MovieListViewControllerProtocol {
     
-    func showMoviesList(_ movies: [Movie]) {
+    func showMovieList(_ movies: [Movie]) {
         var indexPaths: [IndexPath] = []
         
         for index in movies.indices {

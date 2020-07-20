@@ -28,10 +28,14 @@ class MovieListInteractor: MovieListInteractorProtocol {
     
     private let movieListWorker: MovieListWorkerProtocol
     
-    // MARK: - Init
+    // MARK: - Inits
     
     init() {
         self.movieListWorker = MovieListWorker()
+    }
+    
+    init(movieListWorker: MovieListWorkerProtocol) {
+        self.movieListWorker = movieListWorker
     }
     
     // MARK: - Public functions
