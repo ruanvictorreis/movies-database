@@ -1,5 +1,5 @@
 //
-//  MoviesListResponseMock.swift
+//  MoviesListResponseBuilder.swift
 //  TMDBTests
 //
 //  Created by Ruan Reis on 20/07/20.
@@ -10,7 +10,7 @@
 
 struct MoviesListResponseBuilder {
     
-    static func build(page: Int) -> MoviesListResponse {
+    func success(page: Int = 1) -> MovieListResponse {
         let response = [
             1: [
                 Movie(id: 1, title: "Joker", overview: "Overview", releaseDate: "20/06/2019",
@@ -32,6 +32,6 @@ struct MoviesListResponseBuilder {
                       voteAverage: 79.0, posterPath: nil, backdropPath: nil)]
         ]
         
-        return MoviesListResponse(page: page, totalPages: 2, results: response[page] ?? [], totalResults: 3)
+        return MovieListResponse(page: page, totalPages: 2, results: response[page] ?? [], totalResults: 3)
     }
 }

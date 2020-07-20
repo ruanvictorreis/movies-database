@@ -29,7 +29,7 @@ class MovieListViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private var moviesList = [Movie]()
+    private var movieList = [Movie]()
     
     // MARK: - View lifecycle
     
@@ -65,10 +65,10 @@ extension MovieListViewController: MovieListViewControllerProtocol {
         var indexPaths: [IndexPath] = []
         
         for index in movies.indices {
-            indexPaths.append(IndexPath(item: index + (moviesList.count), section: 0))
+            indexPaths.append(IndexPath(item: index + (movieList.count), section: 0))
         }
         
-        moviesList.append(contentsOf: movies)
+        movieList.append(contentsOf: movies)
         
         self.collectionView.performBatchUpdates({
             self.collectionView.insertItems(at: indexPaths)
@@ -91,14 +91,14 @@ extension MovieListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return moviesList.count
+        return movieList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath)
             as? MovieCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.setup(movie: moviesList[indexPath.item])
+        cell.setup(movie: movieList[indexPath.item])
         
         return cell
     }
@@ -127,7 +127,7 @@ extension MovieListViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        router.proceedToMovieDetails(movie: moviesList[indexPath.item])
+        router.proceedToMovieDetails(movie: movieList[indexPath.item])
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Alamofire
 
-typealias MovieListSuccess = (_ response: MoviesListResponse?) -> Void
+typealias MovieListSuccess = (_ response: MovieListResponse?) -> Void
 typealias MovieListError = (_ error: AFError?) -> Void
 
 protocol MovieListWorkerProtocol {
@@ -35,7 +35,7 @@ class MovieListWorker: MovieListWorkerProtocol {
         
         Network().request(
             data: RequestData(url: url, method: .get, encoding: enconding),
-            decoder: SnakeCaseDecoder(expectation: MoviesListResponse.self),
+            decoder: SnakeCaseDecoder(expectation: MovieListResponse.self),
             success: { response in
                 sucess(response)
             },

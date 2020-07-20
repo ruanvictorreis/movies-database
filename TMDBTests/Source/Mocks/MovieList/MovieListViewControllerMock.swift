@@ -12,14 +12,19 @@ class MovieListViewControllerMock: MovieListViewControllerProtocol {
     
     var movieList: [Movie] = []
     
+    var errorMessage: String?
+    
     var showMovieListCalled = false
     
+    var showMovieListErrorCalled = false
+    
     func showMovieList(_ movies: [Movie]) {
-        self.movieList = movies
+        self.movieList.append(contentsOf: movies)
         self.showMovieListCalled = true
     }
     
     func showMovieListError(errorMessage: String) {
-        
+        self.errorMessage = errorMessage
+        self.showMovieListErrorCalled = true
     }
 }
