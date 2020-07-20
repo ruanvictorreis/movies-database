@@ -10,7 +10,7 @@
 
 struct MoviesListResponseBuilder {
     
-    func success(page: Int = 1) -> MovieListResponse {
+    func build(page: Int = 1) -> MovieListResponse {
         let response = [
             1: [
                 Movie(id: 1, title: "Joker", overview: "Overview", releaseDate: "20/06/2019",

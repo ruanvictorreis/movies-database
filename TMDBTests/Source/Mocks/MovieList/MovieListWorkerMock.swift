@@ -22,7 +22,7 @@ class MovieListWorkerSuccessMock: MovieListWorkerProtocol {
                         failure: @escaping MovieListError) {
         sucess(
             MoviesListResponseBuilder()
-                .success(page: currentPage))
+                .build(page: currentPage))
     }
 }
 
