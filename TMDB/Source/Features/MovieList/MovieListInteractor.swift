@@ -28,10 +28,14 @@ class MovieListInteractor: MovieListInteractorProtocol {
     
     private let movieListWorker: MovieListWorkerProtocol
     
-    // MARK: - Init
+    // MARK: - Inits
     
     init() {
         self.movieListWorker = MovieListWorker()
+    }
+    
+    init(movieListWorker: MovieListWorkerProtocol) {
+        self.movieListWorker = movieListWorker
     }
     
     // MARK: - Public functions
@@ -40,7 +44,7 @@ class MovieListInteractor: MovieListInteractorProtocol {
         movieListWorker.fetchMovieList(
             section: section,
             sucess: { [weak self] response in
-                self?.presenter.showMoviesList(response)
+                self?.presenter.showMovieList(response)
             },
             failure: { [weak self] error in
                 self?.presenter.showMovieListError(error)

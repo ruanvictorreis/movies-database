@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MoviesListResponse: Decodable {
+struct MovieListResponse: Decodable {
     
     let page: Int
     

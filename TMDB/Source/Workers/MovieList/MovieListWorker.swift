@@ -8,22 +8,23 @@
 
 import Alamofire
 
-typealias MovieListSuccess = (_ response: MoviesListResponse?) -> Void
+typealias MovieListSuccess = (_ response: MovieListResponse?) -> Void
 typealias MovieListError = (_ error: AFError?) -> Void
 
 protocol MovieListWorkerProtocol {
     
-    func fetchMovieList(section: Section,
-                        sucess: @escaping MovieListSuccess,
-                        failure: @escaping MovieListError)
+    var currentPage: Int { get }
     
     func nextPage()
     
+    func fetchMovieList(section: Section,
+                        sucess: @escaping MovieListSuccess,
+                        failure: @escaping MovieListError)
 }
 
 class MovieListWorker: MovieListWorkerProtocol {
 
-    private var currentPage = 1
+    var currentPage = 1
     
     func fetchMovieList(section: Section,
                         sucess: @escaping MovieListSuccess,
@@ -34,7 +35,7 @@ class MovieListWorker: MovieListWorkerProtocol {
         
         Network().request(
             data: RequestData(url: url, method: .get, encoding: enconding),
-            decoder: SnakeCaseDecoder(expectation: MoviesListResponse.self),
+            decoder: SnakeCaseDecoder(expectation: MovieListResponse.self),
             success: { response in
                 sucess(response)
             },

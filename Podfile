@@ -13,7 +13,8 @@ target 'TMDB' do
 
   target 'TMDBTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Quick', '3.0.0'
+    pod 'Nimble', '8.1.1'
   end
 
 end

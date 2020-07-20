@@ -10,7 +10,7 @@ import Alamofire
 
 protocol MovieListPresenterProtocol {
     
-    func showMoviesList(_ response: MoviesListResponse?)
+    func showMovieList(_ response: MovieListResponse?)
     
     func showMovieListError(_ error: AFError?)
     
@@ -24,14 +24,14 @@ class MovieListPresenter: MovieListPresenterProtocol {
     
     // MARK: - Public functions
     
-    func showMoviesList(_ response: MoviesListResponse?) {
+    func showMovieList(_ response: MovieListResponse?) {
         guard let moviesList = response?.results else {
             viewController.showMovieListError(
                 errorMessage: R.Localizable.errorDescription())
             return
         }
         
-        viewController.showMoviesList(moviesList)
+        viewController.showMovieList(moviesList)
     }
     
     func showMovieListError(_ error: AFError?) {
