@@ -18,7 +18,23 @@ class MovieDetailsSpec: QuickSpec {
         var viewController: MovieDetailsViewControllerMock!
         
         describe("Movie Details") {
-            
+            context("Should show the details of the movie"){
+                afterEach {
+                    interactor = nil
+                    presenter = nil
+                    viewController = nil
+                }
+                
+                beforeEach {
+                    viewController = MovieDetailsViewControllerMock()
+                    presenter = MovieDetailsPresenter()
+                    interactor = MovieDetailsInteractor(
+                        movieDetailsWorker: MovieDetailsWorkerSucessMock())
+                    
+                    interactor.presenter = presenter
+                    presenter.viewController = viewController
+                }
+            }
         }
     }
 }

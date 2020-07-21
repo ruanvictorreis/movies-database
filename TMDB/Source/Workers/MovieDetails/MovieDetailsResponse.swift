@@ -20,8 +20,6 @@ struct MovieDetailsResponse: Decodable {
     
     let credits: Credits
     
-    let videos: MovieTrailerResponse
-    
     let recommendations: RecommendationResponse
     
 }

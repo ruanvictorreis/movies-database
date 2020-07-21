@@ -23,10 +23,14 @@ class MovieDetailsInteractor: MovieDetailInteractorProtocol {
     
     private let movieDetailsWorker: MovieDetailsWorkerProtocol
     
-    // MARK: - Init
+    // MARK: - Inits
     
     init() {
         self.movieDetailsWorker = MovieDetailsWorker()
+    }
+    
+    init(movieDetailsWorker: MovieDetailsWorkerProtocol) {
+        self.movieDetailsWorker = movieDetailsWorker
     }
     
     // MARK: - Public functions

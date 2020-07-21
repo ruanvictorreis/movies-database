@@ -16,9 +16,9 @@ class MovieListSpec: QuickSpec {
         var interactor: MovieListInteractor!
         var presenter: MovieListPresenter!
         var viewController: MovieListViewControllerMock!
-            
+        
         describe("List of movies") {
-            context("Should show a list of popular movies") {
+            context("Given that the app starts presenting a list of movies") {
                 afterEach {
                     interactor = nil
                     presenter = nil
@@ -26,10 +26,11 @@ class MovieListSpec: QuickSpec {
                 }
                 
                 beforeEach {
-                    let movieListWorker = MovieListWorkerSuccessMock()
-                    interactor = MovieListInteractor(movieListWorker: movieListWorker)
                     viewController = MovieListViewControllerMock()
                     presenter = MovieListPresenter()
+                    interactor = MovieListInteractor(
+                        movieListWorker: MovieListWorkerSuccessMock())
+
                     interactor.presenter = presenter
                     presenter.viewController = viewController
                 }
@@ -60,7 +61,7 @@ class MovieListSpec: QuickSpec {
                 }
             }
             
-            context("something went wrong when fetching the movies") {
+            context("Given that an error occurred while fetching the list of movies") {
                 afterEach {
                     interactor = nil
                     presenter = nil
@@ -68,10 +69,11 @@ class MovieListSpec: QuickSpec {
                 }
                 
                 beforeEach {
-                    let movieListWorker = MovieListWorkerFailureMock()
-                    interactor = MovieListInteractor(movieListWorker: movieListWorker)
                     viewController = MovieListViewControllerMock()
                     presenter = MovieListPresenter()
+                    interactor = MovieListInteractor(
+                        movieListWorker: MovieListWorkerFailureMock())
+
                     interactor.presenter = presenter
                     presenter.viewController = viewController
                 }
@@ -93,7 +95,7 @@ class MovieListSpec: QuickSpec {
                 }
             }
             
-            context("api returns an empty response and status code 200") {
+            context("Given that the api returns an empty response and status code 200") {
                 afterEach {
                     interactor = nil
                     presenter = nil
@@ -101,10 +103,11 @@ class MovieListSpec: QuickSpec {
                 }
                 
                 beforeEach {
-                    let movieListWorker = MovieListWorkerEmptyMock()
-                    interactor = MovieListInteractor(movieListWorker: movieListWorker)
                     viewController = MovieListViewControllerMock()
                     presenter = MovieListPresenter()
+                    interactor = MovieListInteractor(
+                        movieListWorker: MovieListWorkerEmptyMock())
+
                     interactor.presenter = presenter
                     presenter.viewController = viewController
                 }
