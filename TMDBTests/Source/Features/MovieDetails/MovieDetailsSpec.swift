@@ -34,6 +34,18 @@ class MovieDetailsSpec: QuickSpec {
                     interactor.presenter = presenter
                     presenter.viewController = viewController
                 }
+                
+                it("view is presenting the movie details") {
+                    interactor.fetchMovieDetails(of: 1)
+                    expect(viewController.details).notTo(beNil())
+                    expect(viewController.details?.duration).to(equal("2h"))
+                    expect(viewController.details?.budget).to(equal("$1,000,000.00"))
+                    expect(viewController.details?.revenue).to(equal("$2,000,000.00"))
+                    expect(viewController.details?.cast.count).to(beGreaterThan(0))
+                    expect(viewController.details?.crew.count).to(beGreaterThan(0))
+                    expect(viewController.details?.genres.count).to(beGreaterThan(0))
+                    expect(viewController.details?.recommendations.count).to(beGreaterThan(0))
+                }
             }
         }
     }
