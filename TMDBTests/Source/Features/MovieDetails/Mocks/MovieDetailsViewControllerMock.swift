@@ -14,7 +14,11 @@ class MovieDetailsViewControllerMock: MovieDetailsViewControllerProtocol {
     
     var recommendation: Movie?
     
+    var errorMessage: String?
+    
     var showMovieDetailsCalled = false
+    
+    var showMovieDetailsErrorCalled = false
     
     var showRecommendationDetailsCalled = false
     
@@ -26,5 +30,10 @@ class MovieDetailsViewControllerMock: MovieDetailsViewControllerProtocol {
     func showRecommendationDetails(_ movie: Movie) {
         self.recommendation = movie
         self.showRecommendationDetailsCalled = true
+    }
+    
+    func showMovieDetailsError(errorMessage: String) {
+        self.errorMessage = errorMessage
+        showMovieDetailsErrorCalled = true
     }
 }

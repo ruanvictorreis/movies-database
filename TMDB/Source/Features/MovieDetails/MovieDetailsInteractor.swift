@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol MovieDetailInteractorProtocol {
+protocol MovieDetailsInteractorProtocol {
     
     func fetchMovieDetails(of movieId: Int)
 }
 
-class MovieDetailsInteractor: MovieDetailInteractorProtocol {
+class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     
     // MARK: - VIP properties
     
-    var presenter: MovieDetailPresenterProtocol!
+    var presenter: MovieDetailsPresenterProtocol!
     
     // MARK: - Private properties
     

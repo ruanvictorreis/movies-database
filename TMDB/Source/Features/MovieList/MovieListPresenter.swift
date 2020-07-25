@@ -26,15 +26,14 @@ class MovieListPresenter: MovieListPresenterProtocol {
     
     func showMovieList(_ response: MovieListResponse?) {
         guard let moviesList = response?.results else {
-            viewController.showMovieListError(
-                errorMessage: R.Localizable.errorDescription())
+            showMovieListError()
             return
         }
         
         viewController.showMovieList(moviesList)
     }
     
-    func showMovieListError(_ error: AFError?) {
+    func showMovieListError(_ error: AFError? = nil) {
         viewController.showMovieListError(
             errorMessage: error?.errorDescription ?? R.Localizable.errorDescription())
     }

@@ -9,7 +9,7 @@
 import Alamofire
 import Foundation
 
-protocol MovieDetailPresenterProtocol {
+protocol MovieDetailsPresenterProtocol {
     
     func showMovieDetails(_ response: MovieDetailsResponse?)
     
@@ -17,7 +17,7 @@ protocol MovieDetailPresenterProtocol {
     
 }
 
-class MovieDetailsPresenter: MovieDetailPresenterProtocol {
+class MovieDetailsPresenter: MovieDetailsPresenterProtocol {
     
     // MARK: - VIP properties
     
@@ -26,12 +26,17 @@ class MovieDetailsPresenter: MovieDetailPresenterProtocol {
     // MARK: - Public functions
     
     func showMovieDetails(_ response: MovieDetailsResponse?) {
-        guard let movieDetails = response else { return }
+        guard let movieDetails = response else {
+            showMovieDetailsError()
+            return
+        }
+        
         let details = Details(movieDetails)
         viewController.showMovieDetails(details)
     }
     
-    func showMovieDetailsError(_ error: AFError?) {
-        
+    func showMovieDetailsError(_ error: AFError? = nil) {
+        viewController.showMovieDetailsError(
+            errorMessage: error?.errorDescription ?? R.Localizable.errorDescription())
     }
 }

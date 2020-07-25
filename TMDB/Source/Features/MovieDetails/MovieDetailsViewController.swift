@@ -13,13 +13,15 @@ protocol MovieDetailsViewControllerProtocol: AnyObject {
     func showMovieDetails(_ details: Details)
     
     func showRecommendationDetails(_ movie: Movie)
+    
+     func showMovieDetailsError(errorMessage: String)
 }
 
 class MovieDetailsViewController: UIViewController {
 
     // MARK: - VIP properties
     
-    var interactor: MovieDetailInteractorProtocol!
+    var interactor: MovieDetailsInteractorProtocol!
     
     var router: MovieDetailRouterProtocol!
     
@@ -142,12 +144,16 @@ class MovieDetailsViewController: UIViewController {
 // MARK: - Protocol requirements extension
 
 extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
-    
+
     func showMovieDetails(_ details: Details) {
         setupUI(details)
     }
     
     func showRecommendationDetails(_ movie: Movie) {
         router.proceedToMovieDetails(movie: movie)
+    }
+    
+    func showMovieDetailsError(errorMessage: String) {
+        showMessage(title: R.Localizable.errorTitle(), message: errorMessage)
     }
 }
