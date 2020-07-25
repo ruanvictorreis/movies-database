@@ -16,6 +16,16 @@ class MovieListSpec: QuickSpec {
         var viewController: MovieListViewControllerMock!
         
         describe("List of movies") {
+            context("Given that the MovieList scene has initialized") {
+                it("All components of the architecture must be initialized") {
+                    let interactor = MovieListInteractor()
+                    expect(interactor).notTo(beNil())
+                    
+                    let presenter = MovieListPresenter()
+                    expect(presenter).notTo(beNil())
+                }
+            }
+            
             context("Given that the app starts presenting a list of movies") {
                 afterEach {
                     viewController = nil

@@ -8,12 +8,9 @@ env:
 branches:
   only:
   - master
-  - /^release-.*$/
-
-before_install:
-- pod install
 
 install:
+  - pod install
   - ./Scripts/install_swiftlint.sh
 
 script:

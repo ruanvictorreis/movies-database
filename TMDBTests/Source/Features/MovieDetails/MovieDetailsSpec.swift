@@ -16,6 +16,16 @@ class MovieDetailsSpec: QuickSpec {
         var viewController: MovieDetailsViewControllerMock!
         
         describe("Movie Details") {
+            context("Given that the MovieDetails scene has initialized") {
+                it("All components of the architecture must be initialized") {
+                    let interactor = MovieDetailsInteractor()
+                    expect(interactor).notTo(beNil())
+                    
+                    let presenter = MovieDetailsPresenter()
+                    expect(presenter).notTo(beNil())
+                }
+            }
+            
             context("Given that the user selected a movie") {
                 afterEach {
                     viewController = nil
