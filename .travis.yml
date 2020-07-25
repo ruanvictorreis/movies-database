@@ -6,9 +6,6 @@ xcode_sdk: iphonesimulator13.6
 env:
  - DESTINATION="platform=iOS Simulator,name=iPhone 11,OS=13.6"
 
- cache:
-  cocoapods: true
-
 branches:
   only:
   - master
