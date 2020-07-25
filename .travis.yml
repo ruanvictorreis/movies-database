@@ -2,20 +2,18 @@ language: swift
 osx_image: xcode11.6
 xcode_workspace: TMDB.xcworkspace
 xcode_sdk: iphonesimulator13.6
+
 env:
  - DESTINATION="platform=iOS Simulator,name=iPhone 11,OS=13.6"
 
 branches:
   only:
   - master
-  - /^release-.*$/
-
-before_install:
-- pod install
 
 install:
+  - pod install
   - ./Scripts/install_swiftlint.sh
 
 script:
   - swiftlint
-  - xcodebuild -workspace TMDB.xcworkspace -scheme TMDB -derivedDataPath BUILDPATH -destination "$DESTINATION" -enableCodeCoverage YES clean test
+  - set -o pipefail && xcodebuild -workspace TMDB.xcworkspace -scheme TMDB -destination "$DESTINATION" test | xcpretty

@@ -8,25 +8,29 @@
 
 import Foundation
 
-protocol MovieDetailInteractorProtocol {
+protocol MovieDetailsInteractorProtocol {
     
     func fetchMovieDetails(of movieId: Int)
 }
 
-class MovieDetailsInteractor: MovieDetailInteractorProtocol {
+class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     
     // MARK: - VIP properties
     
-    var presenter: MovieDetailPresenterProtocol!
+    var presenter: MovieDetailsPresenterProtocol!
     
     // MARK: - Private properties
     
     private let movieDetailsWorker: MovieDetailsWorkerProtocol
     
-    // MARK: - Init
+    // MARK: - Inits
     
     init() {
         self.movieDetailsWorker = MovieDetailsWorker()
+    }
+    
+    init(movieDetailsWorker: MovieDetailsWorkerProtocol) {
+        self.movieDetailsWorker = movieDetailsWorker
     }
     
     // MARK: - Public functions

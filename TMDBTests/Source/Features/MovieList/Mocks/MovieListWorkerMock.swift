@@ -21,8 +21,8 @@ class MovieListWorkerSuccessMock: MovieListWorkerProtocol {
                         sucess: @escaping MovieListSuccess,
                         failure: @escaping MovieListError) {
         sucess(
-            MoviesListResponseBuilder()
-                .success(page: currentPage))
+            MoviesListResponseMock
+                .build(page: currentPage))
     }
 }
 

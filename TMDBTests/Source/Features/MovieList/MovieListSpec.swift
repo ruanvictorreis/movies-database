@@ -13,29 +13,31 @@ import Nimble
 class MovieListSpec: QuickSpec {
     
     override func spec() {
-        var interactor: MovieListInteractor!
-        var presenter: MovieListPresenter!
         var viewController: MovieListViewControllerMock!
-            
+        
         describe("List of movies") {
-            context("Should show a list of popular movies") {
+            context("Given that the MovieList scene has initialized") {
+                it("All components of the architecture must be initialized") {
+                    let interactor = MovieListInteractor()
+                    expect(interactor).notTo(beNil())
+                    
+                    let presenter = MovieListPresenter()
+                    expect(presenter).notTo(beNil())
+                }
+            }
+            
+            context("Given that the app starts presenting a list of movies") {
                 afterEach {
-                    interactor = nil
-                    presenter = nil
                     viewController = nil
                 }
                 
                 beforeEach {
-                    let movieListWorker = MovieListWorkerSuccessMock()
-                    interactor = MovieListInteractor(movieListWorker: movieListWorker)
-                    viewController = MovieListViewControllerMock()
-                    presenter = MovieListPresenter()
-                    interactor.presenter = presenter
-                    presenter.viewController = viewController
+                    viewController = MovieListBuilderMock()
+                        .build(movieListWorker: MovieListWorkerSuccessMock())
                 }
                 
                 it("view is presenting movie list from first page") {
-                    interactor.fetchMovieList()
+                    viewController.interactor.fetchMovieList()
                     expect(viewController.movieList).to(haveCount(3))
                     expect(viewController.showMovieListCalled).to(beTrue())
                     
@@ -47,8 +49,8 @@ class MovieListSpec: QuickSpec {
                 }
                 
                 it("view is presenting movie list from the next page") {
-                    interactor.fetchMovieList()
-                    interactor.fetchNextPage()
+                    viewController.interactor.fetchMovieList()
+                    viewController.interactor.fetchNextPage()
                     expect(viewController.movieList).to(haveCount(6))
                     expect(viewController.showMovieListCalled).to(beTrue())
                     
@@ -60,24 +62,18 @@ class MovieListSpec: QuickSpec {
                 }
             }
             
-            context("something went wrong when fetching the movies") {
+            context("Given that an error occurred while fetching the list of movies") {
                 afterEach {
-                    interactor = nil
-                    presenter = nil
                     viewController = nil
                 }
                 
                 beforeEach {
-                    let movieListWorker = MovieListWorkerFailureMock()
-                    interactor = MovieListInteractor(movieListWorker: movieListWorker)
-                    viewController = MovieListViewControllerMock()
-                    presenter = MovieListPresenter()
-                    interactor.presenter = presenter
-                    presenter.viewController = viewController
+                    viewController = MovieListBuilderMock()
+                        .build(movieListWorker: MovieListWorkerFailureMock())
                 }
                 
                 it("view is presenting error alert") {
-                    interactor.fetchMovieList()
+                    viewController.interactor.fetchMovieList()
                     expect(viewController.movieList).to(haveCount(0))
                     expect(viewController.showMovieListCalled).to(beFalse())
                     expect(viewController.showMovieListErrorCalled).to(beTrue())
@@ -85,7 +81,7 @@ class MovieListSpec: QuickSpec {
                 }
                 
                 it("view is presenting error alert also when fetching next page") {
-                    interactor.fetchNextPage()
+                    viewController.interactor.fetchNextPage()
                     expect(viewController.movieList).to(haveCount(0))
                     expect(viewController.showMovieListCalled).to(beFalse())
                     expect(viewController.showMovieListErrorCalled).to(beTrue())
@@ -93,24 +89,18 @@ class MovieListSpec: QuickSpec {
                 }
             }
             
-            context("api returns an empty response and status code 200") {
+            context("Given that the api returns an empty response and status code 200") {
                 afterEach {
-                    interactor = nil
-                    presenter = nil
                     viewController = nil
                 }
                 
                 beforeEach {
-                    let movieListWorker = MovieListWorkerEmptyMock()
-                    interactor = MovieListInteractor(movieListWorker: movieListWorker)
-                    viewController = MovieListViewControllerMock()
-                    presenter = MovieListPresenter()
-                    interactor.presenter = presenter
-                    presenter.viewController = viewController
+                    viewController = MovieListBuilderMock()
+                        .build(movieListWorker: MovieListWorkerEmptyMock())
                 }
                 
                 it("view is presenting error alert when response is empty") {
-                    interactor.fetchNextPage()
+                    viewController.interactor.fetchNextPage()
                     expect(viewController.movieList).to(haveCount(0))
                     expect(viewController.showMovieListCalled).to(beFalse())
                     expect(viewController.showMovieListErrorCalled).to(beTrue())
@@ -118,7 +108,7 @@ class MovieListSpec: QuickSpec {
                 }
                 
                 it("view is presenting error alert also when fetching next page") {
-                    interactor.fetchNextPage()
+                    viewController.interactor.fetchNextPage()
                     expect(viewController.movieList).to(haveCount(0))
                     expect(viewController.showMovieListCalled).to(beFalse())
                     expect(viewController.showMovieListErrorCalled).to(beTrue())
