@@ -73,6 +73,8 @@
 		15F23BBE2489F17C00876772 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F23BBD2489F17C00876772 /* Default.swift */; };
 		15FE19DC24856E560016F830 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FE19DB24856E560016F830 /* String+Extensions.swift */; };
 		15FE19DE248571060016F830 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FE19DD248571060016F830 /* Date+Extensions.swift */; };
+		15FF72AD24CC989B00B14F70 /* MovieListBuilderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF72AC24CC989B00B14F70 /* MovieListBuilderMock.swift */; };
+		15FF72AF24CC9BE600B14F70 /* MovieDetailsBuilderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF72AE24CC9BE600B14F70 /* MovieDetailsBuilderMock.swift */; };
 		9B3A3E726B10D0A8B159D940 /* Pods_TMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF58619D27F2492D960DC1C /* Pods_TMDB.framework */; };
 		F5E71EB8955F19B217032D1D /* Pods_TMDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A85F064DE3B3ABD98CFEFBC /* Pods_TMDBTests.framework */; };
 /* End PBXBuildFile section */
@@ -159,6 +161,8 @@
 		15F23BBD2489F17C00876772 /* Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Default.swift; sourceTree = "<group>"; };
 		15FE19DB24856E560016F830 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		15FE19DD248571060016F830 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		15FF72AC24CC989B00B14F70 /* MovieListBuilderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListBuilderMock.swift; sourceTree = "<group>"; };
+		15FF72AE24CC9BE600B14F70 /* MovieDetailsBuilderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsBuilderMock.swift; sourceTree = "<group>"; };
 		1F9A97AD7573FB6596E061B2 /* Pods-TMDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB.release.xcconfig"; path = "Target Support Files/Pods-TMDB/Pods-TMDB.release.xcconfig"; sourceTree = "<group>"; };
 		29814C8AE620798E91D2DBE4 /* Pods-TMDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB.debug.xcconfig"; path = "Target Support Files/Pods-TMDB/Pods-TMDB.debug.xcconfig"; sourceTree = "<group>"; };
 		2A85F064DE3B3ABD98CFEFBC /* Pods_TMDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -499,6 +503,7 @@
 		15E879E424C61FC600143965 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				15FF72AC24CC989B00B14F70 /* MovieListBuilderMock.swift */,
 				15E879DE24C4BEF500143965 /* MovieListViewControllerMock.swift */,
 				15E879E024C5DB1B00143965 /* MovieListWorkerMock.swift */,
 				15E879E224C5DCB600143965 /* MoviesListResponseMock.swift */,
@@ -512,6 +517,7 @@
 				15E879E824C6222200143965 /* MovieDetailsViewControllerMock.swift */,
 				1511235024C7ADFB003C804F /* MovieDetailsResponseMock.swift */,
 				1511235224C7B22F003C804F /* MovieDetailsWorkerMock.swift */,
+				15FF72AE24CC9BE600B14F70 /* MovieDetailsBuilderMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -860,6 +866,8 @@
 				15E879E124C5DB1B00143965 /* MovieListWorkerMock.swift in Sources */,
 				15E879DB24C4B9A800143965 /* MovieListSpec.swift in Sources */,
 				15E879E924C6222200143965 /* MovieDetailsViewControllerMock.swift in Sources */,
+				15FF72AD24CC989B00B14F70 /* MovieListBuilderMock.swift in Sources */,
+				15FF72AF24CC9BE600B14F70 /* MovieDetailsBuilderMock.swift in Sources */,
 				15E879DF24C4BEF500143965 /* MovieListViewControllerMock.swift in Sources */,
 				1511235124C7ADFB003C804F /* MovieDetailsResponseMock.swift in Sources */,
 			);

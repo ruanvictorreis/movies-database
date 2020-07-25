@@ -10,6 +10,12 @@
 
 class MovieDetailsViewControllerMock: MovieDetailsViewControllerProtocol {
     
+    //MARK: - VIP Properties
+    
+    var interactor: MovieDetailsInteractorProtocol!
+    
+    //MARK: - Public Properties
+    
     var details: Details?
     
     var recommendation: Movie?
@@ -21,6 +27,8 @@ class MovieDetailsViewControllerMock: MovieDetailsViewControllerProtocol {
     var showMovieDetailsErrorCalled = false
     
     var showRecommendationDetailsCalled = false
+    
+    //MARK: - Public functions
     
     func showMovieDetails(_ details: Details) {
         self.details = details

@@ -13,30 +13,21 @@ import Nimble
 class MovieDetailsSpec: QuickSpec {
     
     override func spec() {
-        var interactor: MovieDetailsInteractor!
-        var presenter: MovieDetailsPresenter!
         var viewController: MovieDetailsViewControllerMock!
         
         describe("Movie Details") {
             context("Given that the user selected a movie") {
                 afterEach {
-                    interactor = nil
-                    presenter = nil
                     viewController = nil
                 }
                 
                 beforeEach {
-                    viewController = MovieDetailsViewControllerMock()
-                    presenter = MovieDetailsPresenter()
-                    interactor = MovieDetailsInteractor(
-                        movieDetailsWorker: MovieDetailsWorkerSucessMock())
-                    
-                    interactor.presenter = presenter
-                    presenter.viewController = viewController
+                    viewController = MovieDetailsBuilderMock()
+                        .build(movieDetailsWorker: MovieDetailsWorkerSucessMock())
                 }
                 
                 it("view is presenting the movie details") {
-                    interactor.fetchMovieDetails(of: 1)
+                    viewController.interactor.fetchMovieDetails(of: 1)
                     expect(viewController.details).notTo(beNil())
                     expect(viewController.showMovieDetailsCalled).to(beTrue())
                     expect(viewController.details?.duration).to(equal("2h"))
@@ -51,23 +42,16 @@ class MovieDetailsSpec: QuickSpec {
             
             context("Given that an error occurred while fetching the movie details") {
                 afterEach {
-                    interactor = nil
-                    presenter = nil
                     viewController = nil
                 }
                 
                 beforeEach {
-                    viewController = MovieDetailsViewControllerMock()
-                    presenter = MovieDetailsPresenter()
-                    interactor = MovieDetailsInteractor(
-                        movieDetailsWorker: MovieDetailsWorkerFailureMock())
-                    
-                    interactor.presenter = presenter
-                    presenter.viewController = viewController
+                    viewController = MovieDetailsBuilderMock()
+                        .build(movieDetailsWorker: MovieDetailsWorkerFailureMock())
                 }
                 
                 it("view is presenting error alert") {
-                    interactor.fetchMovieDetails(of: 1)
+                    viewController.interactor.fetchMovieDetails(of: 1)
                     expect(viewController.details).to(beNil())
                     expect(viewController.showMovieDetailsCalled).to(beFalse())
                     expect(viewController.showMovieDetailsErrorCalled).to(beTrue())
@@ -78,23 +62,16 @@ class MovieDetailsSpec: QuickSpec {
             
             context("Given that the api returns an empty response and status code 200") {
                 afterEach {
-                    interactor = nil
-                    presenter = nil
                     viewController = nil
                 }
                 
                 beforeEach {
-                    viewController = MovieDetailsViewControllerMock()
-                    presenter = MovieDetailsPresenter()
-                    interactor = MovieDetailsInteractor(
-                        movieDetailsWorker: MovieDetailsWorkerEmptyMock())
-                    
-                    interactor.presenter = presenter
-                    presenter.viewController = viewController
+                    viewController = MovieDetailsBuilderMock()
+                        .build(movieDetailsWorker: MovieDetailsWorkerEmptyMock())
                 }
                 
                 it("view is presenting error alert when response is empty") {
-                    interactor.fetchMovieDetails(of: 1)
+                    viewController.interactor.fetchMovieDetails(of: 1)
                     expect(viewController.details).to(beNil())
                     expect(viewController.showMovieDetailsCalled).to(beFalse())
                     expect(viewController.showMovieDetailsErrorCalled).to(beTrue())
