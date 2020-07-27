@@ -17,4 +17,9 @@ target 'TMDB' do
     pod 'Nimble', '8.1.1'
   end
 
+  target 'TMDBUITests' do
+    inherit! :search_paths
+    pod 'KIF', :configurations => ['Debug']
+  end
+
 end
