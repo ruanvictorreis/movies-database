@@ -15,7 +15,8 @@
 		153A626A2478538D009D42B6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A62692478538D009D42B6 /* UIViewController+Extensions.swift */; };
 		153A626C24789276009D42B6 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A626B24789276009D42B6 /* UIColor+Extensions.swift */; };
 		155564B224734FCD007863FE /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155564B124734FCD007863FE /* MovieCollectionViewCell.swift */; };
-		155C4EE224CF9E1F003E1502 /* TMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C4EE124CF9E1F003E1502 /* TMDBUITests.swift */; };
+		155C4EEA24CFB678003E1502 /* KIF+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C4EE924CFB678003E1502 /* KIF+Extensions.swift */; };
+		155C4EED24CFB7E8003E1502 /* MovieListUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C4EEC24CFB7E8003E1502 /* MovieListUITest.swift */; };
 		155F8F7224B8A4BD00CB5412 /* CastCrewCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F8F7124B8A4BD00CB5412 /* CastCrewCarouselView.swift */; };
 		156150B7249C416C0044090E /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156150B6249C416C0044090E /* Details.swift */; };
 		156150B9249C445C0044090E /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156150B8249C445C0044090E /* Int+Extension.swift */; };
@@ -110,8 +111,9 @@
 		153A626B24789276009D42B6 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		155564B124734FCD007863FE /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		155C4EDF24CF9E1F003E1502 /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		155C4EE124CF9E1F003E1502 /* TMDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUITests.swift; sourceTree = "<group>"; };
 		155C4EE324CF9E1F003E1502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155C4EE924CFB678003E1502 /* KIF+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Extensions.swift"; sourceTree = "<group>"; };
+		155C4EEC24CFB7E8003E1502 /* MovieListUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUITest.swift; sourceTree = "<group>"; };
 		155F8F7124B8A4BD00CB5412 /* CastCrewCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCrewCarouselView.swift; sourceTree = "<group>"; };
 		156150B6249C416C0044090E /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		156150B8249C445C0044090E /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -232,8 +234,9 @@
 		155C4EE024CF9E1F003E1502 /* TMDBUITests */ = {
 			isa = PBXGroup;
 			children = (
-				155C4EE124CF9E1F003E1502 /* TMDBUITests.swift */,
 				155C4EE324CF9E1F003E1502 /* Info.plist */,
+				155C4EE924CFB678003E1502 /* KIF+Extensions.swift */,
+				155C4EEC24CFB7E8003E1502 /* MovieListUITest.swift */,
 			);
 			path = TMDBUITests;
 			sourceTree = "<group>";
@@ -759,7 +762,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/TMDB/Resources/R.generated.swift",
+				$SRCROOT/TMDB/Resources/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -907,7 +910,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				155C4EE224CF9E1F003E1502 /* TMDBUITests.swift in Sources */,
+				155C4EED24CFB7E8003E1502 /* MovieListUITest.swift in Sources */,
+				155C4EEA24CFB678003E1502 /* KIF+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
