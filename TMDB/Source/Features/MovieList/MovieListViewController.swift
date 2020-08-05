@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MovieListViewControllerProtocol {
+protocol MovieListViewControllerProtocol: AnyObject {
     
     func showMovieList(_ movies: [Movie])
     
@@ -27,11 +27,11 @@ class MovieListViewController: UIViewController {
     
     @IBOutlet private var collectionView: UICollectionView!
     
-    // MARK: - Private properties
+    // MARK: - Private Properties
     
     private var movieList = [Movie]()
     
-    // MARK: - View lifecycle
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class MovieListViewController: UIViewController {
         fetchMovieList()
     }
     
-    // MARK: - Private functions
+    // MARK: - Private Functions
     
     private func setupCollectionView() {
         collectionView.delegate = self
@@ -57,7 +57,7 @@ class MovieListViewController: UIViewController {
     }
 }
 
-// MARK: - Protocol requirements extension
+// MARK: - Protocol Requirements Extension
 
 extension MovieListViewController: MovieListViewControllerProtocol {
     
@@ -82,7 +82,7 @@ extension MovieListViewController: MovieListViewControllerProtocol {
     }
 }
 
-// MARK: - Extension for UICollectionViewDatasource
+// MARK: - Extension For UICollectionViewDatasource
 
 extension MovieListViewController: UICollectionViewDataSource {
     
@@ -104,7 +104,7 @@ extension MovieListViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Extension for UICollectionViewDelegate
+// MARK: - Extension For UICollectionViewDelegate
 
 extension MovieListViewController: UICollectionViewDelegate {
     
@@ -131,7 +131,7 @@ extension MovieListViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - Extension for UICollectionViewDelegateFlowLayout
+// MARK: - Extension For UICollectionViewDelegateFlowLayout
 
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     
