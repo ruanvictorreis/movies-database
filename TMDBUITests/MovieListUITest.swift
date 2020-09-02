@@ -11,7 +11,4 @@ import KIF
 
 class MovieListUITest: KIFTestCase {
     
-    func testScrollThroughPages() {
-        tester().waitForView(withAccessibilityLabel: "The Old Guard")
-    }
 }

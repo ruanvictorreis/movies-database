@@ -3,6 +3,8 @@ PODS:
   - KIF (3.7.9):
     - KIF/Core (= 3.7.9)
   - KIF/Core (3.7.9)
+  - KIF/IdentifierTests (3.7.9):
+    - KIF/Core
   - Kingfisher (5.14.1):
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
@@ -16,7 +18,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.1)
-  - KIF
+  - KIF (~> 3.7.9)
+  - KIF/IdentifierTests (~> 3.7.9)
   - Kingfisher (= 5.14.1)
   - Nimble (= 8.1.1)
   - Quick (= 3.0.0)
@@ -47,6 +50,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: b487236b1f5778b1a5785d047f5c13f456d1846d
+PODFILE CHECKSUM: 930f57d539bc5b7b3aaf774a1674f18e47e9a079
 
 COCOAPODS: 1.9.3

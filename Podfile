@@ -19,7 +19,8 @@ target 'TMDB' do
 
   target 'TMDBUITests' do
     inherit! :search_paths
-    pod 'KIF', :configurations => ['Debug']
+    pod 'KIF', '~> 3.7.9'
+    pod 'KIF/IdentifierTests', '~> 3.7.9'
   end
 
 end
